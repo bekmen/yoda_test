@@ -102,7 +102,7 @@
         <Name>EM</Name>
         <UID>65a3763b76829e9d4d3be46452ac25a6702f30a6</UID>
         <Access>R/W</Access>
-        <Address>'h610F_0000</Address>
+        <Address>'hC001_0000</Address>
         <ArrayEnabled>False</ArrayEnabled>
         <ArrayLetter>n</ArrayLetter>
         <ArrayFrom>0</ArrayFrom>
@@ -213,36 +213,13 @@
         <User></User>
         <Visibility>Public</Visibility>
       </MemoryRegion>
-      <MemoryRegion>
-        <Name>PLC_RAM</Name>
-        <UID>b556c1096ea60fcdf599dba632613d628fe4579e</UID>
-        <Access>R/W</Access>
-        <Address>'hC004A400</Address>
-        <ArrayEnabled>False</ArrayEnabled>
-        <ArrayLetter>n</ArrayLetter>
-        <ArrayFrom>0</ArrayFrom>
-        <ArrayTo>2</ArrayTo>
-        <ArrayBy>1</ArrayBy>
-        <ArrayStride>1</ArrayStride>
-        <DataFormat>Unsigned</DataFormat>
-        <Description></Description>
-        <Documentation></Documentation>
-        <Exists>True</Exists>
-        <Location>None</Location>
-        <Notes></Notes>
-        <Size>'h400</Size>
-        <Type>None</Type>
-        <UnitWidth>'d32</UnitWidth>
-        <User></User>
-        <Visibility>Public</Visibility>
-      </MemoryRegion>
     </MemoryRegions>
   </MemoryMap>
   <Instances>
     <Instance>
       <Name>dmcore</Name>
       <UID>cc1c748c342ab03c819ef573248c7861da35e9ab</UID>
-      <Address>'h610E0000</Address>
+      <Address>'hC0000000</Address>
       <ArrayEnabled>False</ArrayEnabled>
       <ArrayLetter>n</ArrayLetter>
       <ArrayFrom>0</ArrayFrom>
@@ -259,7 +236,7 @@
     <Instance>
       <Name>btcore</Name>
       <UID>7ab50dd6139c0f7ae333bdd455202f30beae1f45</UID>
-      <Address>'h610E0400</Address>
+      <Address>'hC0000400</Address>
       <ArrayEnabled>False</ArrayEnabled>
       <ArrayLetter>n</ArrayLetter>
       <ArrayFrom>0</ArrayFrom>
@@ -276,7 +253,7 @@
     <Instance>
       <Name>blecore</Name>
       <UID>f63be11af080211b5ab5d711193cec4a1f318c33</UID>
-      <Address>'h610E0800</Address>
+      <Address>'hC0000800</Address>
       <ArrayEnabled>False</ArrayEnabled>
       <ArrayLetter>n</ArrayLetter>
       <ArrayFrom>0</ArrayFrom>
@@ -469,91 +446,6 @@
       <User></User>
     </Instance>
     <Instance>
-      <Name>gpt0</Name>
-      <UID>6d36d5249344d2dafd20e36ed54ba760cdc0a0b6</UID>
-      <Address>'hC0046000</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/adip/adip_digital/adip_gptimer/digital/yoda/gptimer.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>gpt1</Name>
-      <UID>5e5719e23a18532e5b155f0867b17be588c7c140</UID>
-      <Address>'hC0046400</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/adip/adip_digital/adip_gptimer/digital/yoda/gptimer.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>pwm</Name>
-      <UID>f253f1f2af19d14ed52462e9fa2b3204da118e32</UID>
-      <Address>'hC0046800</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/adip/adip_digital/adip_gptimer/digital/yoda/gptimer.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>owm</Name>
-      <UID>4844e3b0e9b6dd6a0d68876a7286ce875d86968b</UID>
-      <Address>'hC0046C00</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/subProjects/ais_reuse/one_wire/ow_master/yoda/owm.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>fg</Name>
-      <UID>e19d5ef0e84bb93bd124b5cb75c11155dfb88d84</UID>
-      <Address>'hC0047000</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/digital/pm_subsys/yoda/FG.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
       <Name>i2c_pm</Name>
       <UID>274725b20f3d7995df65a7f29426cdbc875f8291</UID>
       <Address>'hC0048000</Address>
@@ -573,7 +465,7 @@
     <Instance>
       <Name>i2c_ext</Name>
       <UID>747280a7d949151aeec9a75c18444ce394ffae2c</UID>
-      <Address>'hC0048400</Address>
+      <Address>'hC0049000</Address>
       <ArrayEnabled>False</ArrayEnabled>
       <ArrayLetter>n</ArrayLetter>
       <ArrayFrom>0</ArrayFrom>
@@ -584,57 +476,6 @@
       <Documentation></Documentation>
       <Exists>True</Exists>
       <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/adip/adip_digital/adip_i2c_gecko_flavor/digital/yoda/i2c.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>gpio0</Name>
-      <UID>17110ceb5b0bf09e1016fe5d1935b53142aff527</UID>
-      <Address>'hC0048800</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/yoda/gpio.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>gpio1</Name>
-      <UID>470d8189493500d3e3353efe6764dc9d1b78aecd</UID>
-      <Address>'hC0048C00</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/yoda/gpio.yda&quot;</Module>
-      <Notes></Notes>
-      <User></User>
-    </Instance>
-    <Instance>
-      <Name>plc_regmap</Name>
-      <UID>83d5c84debcf75656a879fb82ea48875c1c51680</UID>
-      <Address>'hC004A000</Address>
-      <ArrayEnabled>False</ArrayEnabled>
-      <ArrayLetter>n</ArrayLetter>
-      <ArrayFrom>0</ArrayFrom>
-      <ArrayTo>2</ArrayTo>
-      <ArrayBy>1</ArrayBy>
-      <ArrayStride>1</ArrayStride>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <Module>=Environ(&quot;PRJ_HOME&quot;)+&quot;/digital/pm_subsys/yoda/PLC.yda&quot;</Module>
       <Notes></Notes>
       <User></User>
     </Instance>
@@ -751,9 +592,9 @@
       <Documentation></Documentation>
       <Exists>True</Exists>
       <ID>-14</ID>
-      <InstanceRef>wdt</InstanceRef>
+      <InstanceRef>SYS</InstanceRef>
       <Notes></Notes>
-      <PortRef>EXP</PortRef>
+      <PortRef>NonMaskableInt</PortRef>
       <UID>8af42af9de96d8323d566fab2c91fbc7a4555a91</UID>
       <User></User>
     </Interrupt>
@@ -2194,97 +2035,6 @@
       <Notes></Notes>
       <PortRef>crc_error</PortRef>
       <UID>1d099b1eb735b89fc93920a25c41687ed5411302</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>GPT0 Interrupt</Description>
-      <DocSets>
-        <Set1>
-          <Name>gpt_irq</Name>
-        </Set1>
-      </DocSets>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>86</ID>
-      <InstanceRef>gpt0</InstanceRef>
-      <Notes></Notes>
-      <PortRef>irq</PortRef>
-      <UID>f625ad60e5eff528608cf0364eb52606d0a2e445</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>PWM Interrupt</Description>
-      <DocSets>
-        <Set1>
-          <Name>pwm_irq</Name>
-        </Set1>
-      </DocSets>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>87</ID>
-      <InstanceRef>pwm</InstanceRef>
-      <Notes></Notes>
-      <PortRef>irq</PortRef>
-      <UID>1678c6adee70e106e06621cf38cd6bd5904d2077</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>PLC Interrupt</Description>
-      <DocSets>
-        <Set1>
-          <Name>pwm_irq</Name>
-        </Set1>
-      </DocSets>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>88</ID>
-      <InstanceRef>plc_regmap</InstanceRef>
-      <Notes></Notes>
-      <PortRef>irq</PortRef>
-      <UID>f41174674966c12343b36aa4b51678badbb6d617</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>GPT1 Interrupt</Description>
-      <DocSets>
-        <Set1>
-          <Name>gpt_irq</Name>
-        </Set1>
-      </DocSets>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>89</ID>
-      <InstanceRef>gpt1</InstanceRef>
-      <Notes></Notes>
-      <PortRef>irq</PortRef>
-      <UID>a3213672e32bf3c3fcbc8d97bc63b6d454c661a8</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>FG Interrupt</Description>
-      <DocSets>
-        <Set1>
-          <Name>fg_irq</Name>
-        </Set1>
-      </DocSets>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>90</ID>
-      <InstanceRef>fg</InstanceRef>
-      <Notes></Notes>
-      <PortRef>irq</PortRef>
-      <UID>49e6b8a6ecf610bd947405a80eb588b8d6a04e70</UID>
-      <User></User>
-    </Interrupt>
-    <Interrupt>
-      <Description>OWM Interrupt</Description>
-      <Documentation></Documentation>
-      <Exists>True</Exists>
-      <ID>91</ID>
-      <InstanceRef>owm</InstanceRef>
-      <Notes></Notes>
-      <PortRef>cpu_int</PortRef>
-      <UID>e463298b962af3f3e2df2a277f063751d2e7baeb</UID>
       <User></User>
     </Interrupt>
   </Interrupts>

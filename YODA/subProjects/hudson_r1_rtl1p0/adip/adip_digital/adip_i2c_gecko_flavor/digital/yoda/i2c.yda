@@ -14,19 +14,6 @@
       <User></User>
       <Visibility>Private</Visibility>
     </Parameter>
-    <Parameter>
-      <Name>THDATIN_WIDTH</Name>
-      <UID>f73a08d0f6be5280e62725716056f9254fee724f</UID>
-      <Condition>True</Condition>
-      <DataType>Integer</DataType>
-      <DefaultValue>'d5</DefaultValue>
-      <Description></Description>
-      <Documentation></Documentation>
-      <Notes></Notes>
-      <Scope>Input</Scope>
-      <User></User>
-      <Visibility>Private</Visibility>
-    </Parameter>
   </Parameters>
   <Properties>
     <HardwareName>I2C</HardwareName>
@@ -326,7 +313,7 @@ If a 10 bit address is required, Bit 7 to Bit 3 of ADR1 are programmed with 1111
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -381,7 +368,7 @@ When this bit is set, 10 bit addressing is enabled. One 10 bit address is suppor
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -435,7 +422,7 @@ When this bit is set, 10 bit addressing is enabled. One 10 bit address is suppor
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -544,7 +531,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -598,7 +585,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -652,7 +639,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -706,7 +693,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -814,7 +801,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -868,7 +855,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -922,7 +909,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
         <EnumElements>
           <EnumElement>
@@ -1012,7 +999,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>4</Width>
       </BitField>
       <BitField>
@@ -1066,7 +1053,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -1286,7 +1273,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -1340,7 +1327,7 @@ This bit is cleared on a read of the MSTAT register. This bit can drive an inter
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -1402,7 +1389,7 @@ As tHD:STA must be 600ns; with UCLK = 50MHz the minimum value for HIGH is 31. Th
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>10</Width>
       </BitField>
       <BitField>
@@ -1466,18 +1453,8 @@ As tHD:STA must be 600ns; with UCLK = 50MHz the minimum value for HIGH is 31. Th
         <Bundle></Bundle>
         <DefaultValue>'h0</DefaultValue>
         <Description>Master Transmit Register</Description>
-        <DocSets>
-          <Set1>
-            <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the master. 
-For example, a byte written to the transmit register can be read back when that byte is being transmitted on the line. 
-This register allows access to the transmit data FIFO. The FIFO can hold 2 bytes.
-Note: Write and read is not on same register. Read on this register can give &quot;Start Byte(BYT)&quot; or &quot;Address Byte 1(ADDR1)&quot; or &quot;Address Byte 2(ADDR2)&quot; or &quot;MTX&quot; or &quot;STX&quot;. If we want to read ADDR1, read MTX when Address Byte 1 is being transmitted on the line.</Documentation>
-          </Set1>
-        </DocSets>
-        <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the master. 
-For example, a byte written to the transmit register can be read back when that byte is being transmitted on the line. 
-This register allows access to the transmit data FIFO. The FIFO can hold 2 bytes.
-Note: Write and read is not on same register. Read on this register can give &quot;Start Byte(BYT)&quot; or &quot;Address Byte 1(ADDR1)&quot; or &quot;Address Byte 2(ADDR2)&quot; or &quot;MTX&quot; or &quot;STX&quot;. If we want to read ADDR1, read MTX when Address Byte 1 is being transmitted on the line.</Documentation>
+        <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the master. That is, a byte written to the transmit register can be read back some time later when that byte is being transmitted on the line.
+This register allows access to the transmit data FIFO. The FIFO can hold 2 bytes.</Documentation>
         <Exists>True</Exists>
         <HSType>Both</HSType>
         <ReadSideEffect>None</ReadSideEffect>
@@ -1585,18 +1562,9 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <Bundle></Bundle>
         <DefaultValue>'h0</DefaultValue>
         <Description>Slave Transmit Register</Description>
-        <DocSets>
-          <Set1>
-            <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the slave. 
-For example, a byte written to the transmit register can be read back when that byte is being transmitted on the line. 
-This register allows access to the transmit data FIFO. 
-Note: Write and read is not on same register. Read on this register can give &quot;Start Byte(BYT)&quot; or &quot;Address Byte 1(ADDR1)&quot; or &quot;Address Byte 2(ADDR2)&quot; or &quot;MTX&quot; or &quot;STX&quot;. If we want to read ADDR1, read STX when Address Byte 1 is being transmitted on the line.</Documentation>
-          </Set1>
-        </DocSets>
-        <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the slave. 
-For example, a byte written to the transmit register can be read back when that byte is being transmitted on the line. 
-This register allows access to the transmit data FIFO. 
-Note: Write and read is not on same register. Read on this register can give &quot;Start Byte(BYT)&quot; or &quot;Address Byte 1(ADDR1)&quot; or &quot;Address Byte 2(ADDR2)&quot; or &quot;MTX&quot; or &quot;STX&quot;. If we want to read ADDR1, read STX when Address Byte 1 is being transmitted on the line.</Documentation>
+        <Documentation>For test and debug purposes, when read, this register returns the byte that is currently being transmitted by the slave.
+That is, a byte written to the transmit register can be read back some time later when that byte is being transmitted on the line.
+This register allows access to the 8-bit transmit data FIFO.</Documentation>
         <Exists>True</Exists>
         <HSType>Both</HSType>
         <ReadSideEffect>None</ReadSideEffect>
@@ -1694,7 +1662,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -1748,7 +1716,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -1802,7 +1770,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -1856,7 +1824,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -2022,7 +1990,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2076,7 +2044,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2130,7 +2098,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2184,7 +2152,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2238,7 +2206,7 @@ Note: Write and read is not on same register. Read on this register can give &qu
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2293,7 +2261,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2347,7 +2315,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2401,7 +2369,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2455,7 +2423,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2509,7 +2477,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>10</Width>
       </BitField>
       <BitField>
@@ -2617,7 +2585,7 @@ If 0 an interrupt will not be generated when the REPSTART status bit asserts.</D
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2673,7 +2641,7 @@ This register is reset to 0x1F which gives an SCL low time of 32 UCLK ticks.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>10</Width>
       </BitField>
       <BitField>
@@ -2727,7 +2695,7 @@ This register is reset to 0x1F which gives an SCL low time of 32 UCLK ticks.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -2781,7 +2749,7 @@ This register is reset to 0x1F which gives an SCL low time of 32 UCLK ticks.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2843,7 +2811,7 @@ This register is reset to 0x1F which gives an SCL low time of 32 UCLK ticks.</Do
         <UID>87a9c50d071421b7cee8c3d48414530c13980414</UID>
         <Access>R</Access>
         <Bundle></Bundle>
-        <DefaultValue>2</DefaultValue>
+        <DefaultValue>1</DefaultValue>
         <Description>Revisioning to indicate minor changes to IP</Description>
         <Documentation></Documentation>
         <Exists>True</Exists>
@@ -2889,7 +2857,7 @@ This register is reset to 0x1F which gives an SCL low time of 32 UCLK ticks.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>4</Width>
       </BitField>
       <BitField>
@@ -2944,7 +2912,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -2998,7 +2966,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User></User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -3327,7 +3295,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -3381,7 +3349,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -3731,7 +3699,7 @@ If set to 0, the master transmit FIFO status is decremented when the byte is unl
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -3785,7 +3753,7 @@ If set to 0, the master transmit FIFO status is decremented when the byte is unl
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4003,7 +3971,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4057,7 +4025,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>16</Width>
       </BitField>
       <BitField>
@@ -4165,7 +4133,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4273,7 +4241,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>8</Width>
       </BitField>
       <BitField>
@@ -4327,7 +4295,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>2</Width>
       </BitField>
       <BitField>
@@ -4489,7 +4457,7 @@ This bit is cleared on a read of the I2CSSTA register.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4544,7 +4512,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4598,7 +4566,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User></User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -4981,7 +4949,7 @@ It is cleared on receipt of either a stop or start condition.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -5035,7 +5003,7 @@ It is cleared on receipt of either a stop or start condition.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -5090,7 +5058,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -5144,7 +5112,7 @@ Cleared by user code to disable DMA mode.</Documentation>
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -5498,7 +5466,7 @@ If set to 0, the transmit FIFO status is decremented when the byte is unloaded f
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>1</Width>
       </BitField>
       <BitField>
@@ -5607,8 +5575,8 @@ When this bit is read it will clear status. This bit can drive an interrupt.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Static</User>
-        <Width>= THDATIN_WIDTH</Width>
+        <User>Retain=&quot;True&quot;;</User>
+        <Width>5</Width>
       </BitField>
       <BitField>
         <Name>TRIVIAL_REV</Name>
@@ -5661,7 +5629,7 @@ When this bit is read it will clear status. This bit can drive an interrupt.</Do
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User></User>
         <Width>4</Width>
       </BitField>
       <BitField>
@@ -5726,7 +5694,7 @@ Master clock stretch mode will be automatically disabled when mas_txint_clr is a
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>4</Width>
       </BitField>
       <BitField>
@@ -5786,7 +5754,7 @@ Note: when stretch_mode_slv is 4&#8217;b0000, SCTL[5] EARLYTXR must be set to 1,
         <UIMaxValue>=__AUTO__</UIMaxValue>
         <UIIncrement>1</UIIncrement>
         <UIPolarity>ActiveHigh</UIPolarity>
-        <User>static</User>
+        <User>Retain=&quot;True&quot;;</User>
         <Width>4</Width>
       </BitField>
       <BitField>
@@ -7105,7 +7073,7 @@ Note: when stretch_mode_slv is 4&#8217;b0000, SCTL[5] EARLYTXR must be set to 1,
                 <BF-UID>a278d0c1ca4cede72b937845e790e33bc9cbd0fb</BF-UID>	<!-- Name: THDATIN -->
                 <BitOffset>0</BitOffset>
                 <RegOffset>0</RegOffset>
-                <SliceWidth>= THDATIN_WIDTH</SliceWidth>
+                <SliceWidth>5</SliceWidth>
                 <UID>5790c1361095da2b9481393f934e6fd4b81485ad</UID>
               </BitFieldRef>
               <BitFieldRef>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module DBSchema="Primary" DBVersion="2.49">
+<Module DBSchema="Primary" DBVersion="2.48">
   <Parameters>
     <Parameter>
       <Name>CSS_LOCAL</Name>
@@ -30,6 +30,19 @@
     <Parameter>
       <Name>NSS_LOCAL</Name>
       <UID>6f7b04bb2b7cbaa7b15d648fbb963935ff15697e</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>0</DefaultValue>
+      <Description></Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+    <Parameter>
+      <Name>CI_LOCAL</Name>
+      <UID>595f87fd01ab2028f89fda73fbfcdc7e09f4aa8a</UID>
       <Condition>True</Condition>
       <DataType>Integer</DataType>
       <DefaultValue>0</DefaultValue>
@@ -201,7 +214,6 @@
     <MemoryAccessMethod>MemoryMappedRegister</MemoryAccessMethod>
     <Notes>Your module engineering notes, here.</Notes>
     <User></User>
-    <UserExtensions></UserExtensions>
     <GeneratorOptions></GeneratorOptions>
     <Dictionary></Dictionary>
     <VariantContext>Generic</VariantContext>
@@ -210,8 +222,6 @@
   </Properties>
   <PageMasks>
   </PageMasks>
-  <PhaseMasks>
-  </PhaseMasks>
   <Ports>
   </Ports>
   <MemoryMap>
@@ -333,6 +343,52 @@
         <Location>None</Location>
         <Notes></Notes>
         <Size>'h200000</Size>
+        <Type>None</Type>
+        <UnitWidth>8</UnitWidth>
+        <User></User>
+        <Visibility>Public</Visibility>
+      </MemoryRegion>
+      <MemoryRegion>
+        <Name>CI_DTCM</Name>
+        <UID>bc16004bb5b43f94b80b1cdafe750f97ac808ec5</UID>
+        <Access>None</Access>
+        <Address>=(CI_LOCAL == 'd1 ? 'h20000000 : 'h21000000)</Address>
+        <ArrayEnabled>False</ArrayEnabled>
+        <ArrayLetter>n</ArrayLetter>
+        <ArrayFrom>0</ArrayFrom>
+        <ArrayTo>2</ArrayTo>
+        <ArrayBy>1</ArrayBy>
+        <ArrayStride>1</ArrayStride>
+        <DataFormat>Unsigned</DataFormat>
+        <Description>CI DTCM</Description>
+        <Documentation></Documentation>
+        <Exists>=(DROP_0P1 == 0)</Exists>
+        <Location>None</Location>
+        <Notes></Notes>
+        <Size>'h4000</Size>
+        <Type>None</Type>
+        <UnitWidth>8</UnitWidth>
+        <User></User>
+        <Visibility>Public</Visibility>
+      </MemoryRegion>
+      <MemoryRegion>
+        <Name>CI_ITCM</Name>
+        <UID>2b88cbaea0c5e9826813de641b2476ff30bab809</UID>
+        <Access>None</Access>
+        <Address>=(CI_LOCAL == 'd1 ? 'h0 :'h21100000)</Address>
+        <ArrayEnabled>False</ArrayEnabled>
+        <ArrayLetter>n</ArrayLetter>
+        <ArrayFrom>0</ArrayFrom>
+        <ArrayTo>2</ArrayTo>
+        <ArrayBy>1</ArrayBy>
+        <ArrayStride>1</ArrayStride>
+        <DataFormat>Unsigned</DataFormat>
+        <Description>CI ITCM</Description>
+        <Documentation></Documentation>
+        <Exists>=(DROP_0P1 == 0)</Exists>
+        <Location>None</Location>
+        <Notes></Notes>
+        <Size>'h8000</Size>
         <Type>None</Type>
         <UnitWidth>8</UnitWidth>
         <User></User>
@@ -629,6 +685,29 @@
         <Description>NSS DFG</Description>
         <Documentation></Documentation>
         <Exists>=(DROP_1P0 == 0 &amp;&amp; DROP_0P1 == 0 )</Exists>
+        <Location>None</Location>
+        <Notes></Notes>
+        <Size>'h4000</Size>
+        <Type>None</Type>
+        <UnitWidth>8</UnitWidth>
+        <User></User>
+        <Visibility>Public</Visibility>
+      </MemoryRegion>
+      <MemoryRegion>
+        <Name>CI_DFG</Name>
+        <UID>222c34b2085824f87d3a572854cd06a6f5cec00a</UID>
+        <Access>None</Access>
+        <Address>'h41000000</Address>
+        <ArrayEnabled>False</ArrayEnabled>
+        <ArrayLetter>n</ArrayLetter>
+        <ArrayFrom>0</ArrayFrom>
+        <ArrayTo>2</ArrayTo>
+        <ArrayBy>1</ArrayBy>
+        <ArrayStride>1</ArrayStride>
+        <DataFormat>Unsigned</DataFormat>
+        <Description>CI DFG</Description>
+        <Documentation></Documentation>
+        <Exists>=(DROP_1P0 == 0 &amp;&amp; DROP_0P1 == 0)</Exists>
         <Location>None</Location>
         <Notes></Notes>
         <Size>'h4000</Size>
@@ -2003,6 +2082,17 @@
       <Notes></Notes>
       <PortRef>TRIG_CSS</PortRef>
       <UID>7ea9155b41a81892d2b12ce8466ec50b11b5729a</UID>
+      <User></User>
+    </Interrupt>
+    <Interrupt>
+      <Description></Description>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <ID>-14</ID>
+      <InstanceRef>edu</InstanceRef>
+      <Notes></Notes>
+      <PortRef>TRIG_CI_SS</PortRef>
+      <UID>d2974f0ef2feaccd1cfc4a7648cfbe64393a803a</UID>
       <User></User>
     </Interrupt>
     <Interrupt>
@@ -4921,6 +5011,17 @@ Index 0: Reset sequence complete</Documentation>
       <Notes></Notes>
       <PortRef>dde_0_interrupt_2_sic</PortRef>
       <UID>995579a7a1f42f3b9a130d83d83578a74b6dcc56</UID>
+      <User></User>
+    </Interrupt>
+    <Interrupt>
+      <Description></Description>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <ID>75</ID>
+      <InstanceRef>edu</InstanceRef>
+      <Notes></Notes>
+      <PortRef>IRQ_CI_SS</PortRef>
+      <UID>deafcd929210ccd5e9b5372ea6b3e98b273968c7</UID>
       <User></User>
     </Interrupt>
     <Interrupt>

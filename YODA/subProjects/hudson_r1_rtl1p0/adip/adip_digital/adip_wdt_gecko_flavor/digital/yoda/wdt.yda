@@ -172,60 +172,6 @@
         <Width>32</Width>
       </BitField>
       <BitField>
-        <Name>EARLY_THR</Name>
-        <UID>0eb74efd588f9e6b8dceeba31c52ea597d969f59</UID>
-        <Access>R/W</Access>
-        <Bundle>Digital</Bundle>
-        <DefaultValue>'d0</DefaultValue>
-        <Description>Early Threshold Value</Description>
-        <Documentation></Documentation>
-        <Exists>True</Exists>
-        <HSType>Both</HSType>
-        <ReadSideEffect>None</ReadSideEffect>
-        <WriteSideEffect>None</WriteSideEffect>
-        <DefaultType>HardWired</DefaultType>
-        <ClockSignal>clk</ClockSignal>
-        <ResetType>ASync</ResetType>
-        <ResetSignal>=__AUTO__</ResetSignal>
-        <Visibility>Public</Visibility>
-        <ReadEnableSignal></ReadEnableSignal>
-        <WriteEnableSignal></WriteEnableSignal>
-        <ReadStrobe>None</ReadStrobe>
-        <WriteStrobe>None</WriteStrobe>
-        <LatchSignal></LatchSignal>
-        <InputSideEffect>None</InputSideEffect>
-        <OutputSideEffect>None</OutputSideEffect>
-        <Volatile>False</Volatile>
-        <RequiresCustomRTL>False</RequiresCustomRTL>
-        <Testable>True</Testable>
-        <ForcedValue></ForcedValue>
-        <ForcedValueSignal></ForcedValueSignal>
-        <LinkSet></LinkSet>
-        <MSEnabled>False</MSEnabled>
-        <MSTransferSignal>transfer</MSTransferSignal>
-        <MSReadSelectSignal>read_select</MSReadSelectSignal>
-        <MSSubClockSignal>slave_clk</MSSubClockSignal>
-        <MSSubLogic>Included</MSSubLogic>
-        <Notes></Notes>
-        <PageMask></PageMask>
-        <UINotes></UINotes>
-        <UIToolTip>=__AUTO__</UIToolTip>
-        <UIUIType>=__AUTO__</UIUIType>
-        <UIWidget>=__AUTO__</UIWidget>
-        <UINumericBase>Decimal</UINumericBase>
-        <UIDataFormat>Unsigned</UIDataFormat>
-        <UIPrefix>None</UIPrefix>
-        <UIUnits>None</UIUnits>
-        <UIScale>1</UIScale>
-        <UIOffset>0</UIOffset>
-        <UIMinValue>=__AUTO__</UIMinValue>
-        <UIMaxValue>=__AUTO__</UIMaxValue>
-        <UIIncrement>1</UIIncrement>
-        <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Retain=&quot;True&quot;</User>
-        <Width>32</Width>
-      </BitField>
-      <BitField>
         <Name>FLAVOR_ID</Name>
         <UID>fed839684b01abc70e57f4fc7760fea9efacf688</UID>
         <Access>R</Access>
@@ -390,60 +336,6 @@ Cleared by user to generate a reset on a time out (default).
         <UIPolarity>ActiveHigh</UIPolarity>
         <User>Retain=&quot;True&quot;</User>
         <Width>1</Width>
-      </BitField>
-      <BitField>
-        <Name>LATE_THR</Name>
-        <UID>0bef0f75732c330ea1b6c96b7d9c8a795cc73033</UID>
-        <Access>R/W</Access>
-        <Bundle>Digital</Bundle>
-        <DefaultValue>'d0</DefaultValue>
-        <Description>Late Threshold Value</Description>
-        <Documentation></Documentation>
-        <Exists>True</Exists>
-        <HSType>Both</HSType>
-        <ReadSideEffect>None</ReadSideEffect>
-        <WriteSideEffect>None</WriteSideEffect>
-        <DefaultType>HardWired</DefaultType>
-        <ClockSignal>clk</ClockSignal>
-        <ResetType>ASync</ResetType>
-        <ResetSignal>=__AUTO__</ResetSignal>
-        <Visibility>Public</Visibility>
-        <ReadEnableSignal></ReadEnableSignal>
-        <WriteEnableSignal></WriteEnableSignal>
-        <ReadStrobe>None</ReadStrobe>
-        <WriteStrobe>None</WriteStrobe>
-        <LatchSignal></LatchSignal>
-        <InputSideEffect>None</InputSideEffect>
-        <OutputSideEffect>None</OutputSideEffect>
-        <Volatile>False</Volatile>
-        <RequiresCustomRTL>False</RequiresCustomRTL>
-        <Testable>True</Testable>
-        <ForcedValue></ForcedValue>
-        <ForcedValueSignal></ForcedValueSignal>
-        <LinkSet></LinkSet>
-        <MSEnabled>False</MSEnabled>
-        <MSTransferSignal>transfer</MSTransferSignal>
-        <MSReadSelectSignal>read_select</MSReadSelectSignal>
-        <MSSubClockSignal>slave_clk</MSSubClockSignal>
-        <MSSubLogic>Included</MSSubLogic>
-        <Notes></Notes>
-        <PageMask></PageMask>
-        <UINotes></UINotes>
-        <UIToolTip>=__AUTO__</UIToolTip>
-        <UIUIType>=__AUTO__</UIUIType>
-        <UIWidget>=__AUTO__</UIWidget>
-        <UINumericBase>Decimal</UINumericBase>
-        <UIDataFormat>Unsigned</UIDataFormat>
-        <UIPrefix>None</UIPrefix>
-        <UIUnits>None</UIUnits>
-        <UIScale>1</UIScale>
-        <UIOffset>0</UIOffset>
-        <UIMinValue>=__AUTO__</UIMinValue>
-        <UIMaxValue>=__AUTO__</UIMaxValue>
-        <UIIncrement>1</UIIncrement>
-        <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Retain=&quot;True&quot;</User>
-        <Width>32</Width>
       </BitField>
       <BitField>
         <Name>LOAD</Name>
@@ -1059,63 +951,6 @@ When enable set, watchdog can only be disabled by a system reset. This prevents 
         <User>Retain=&quot;True&quot;</User>
         <Width>1</Width>
       </BitField>
-      <BitField>
-        <Name>wwdt_enable</Name>
-        <UID>27c4bc98e83e8c1fb5d59eee9a37eee67cbf55ed</UID>
-        <Access>R/W</Access>
-        <Bundle>Digital</Bundle>
-        <DefaultValue>'h0</DefaultValue>
-        <Description>Windowed Timer Enable</Description>
-        <Documentation>Set by user to enable the timer.
-When enable set, watchdog can only be disabled by a system reset. This prevents software inadvertently disabling the watchdog.
-0: WDT not enabled
-1: WDT enabled</Documentation>
-        <Exists>True</Exists>
-        <HSType>Both</HSType>
-        <ReadSideEffect>None</ReadSideEffect>
-        <WriteSideEffect>None</WriteSideEffect>
-        <DefaultType>HardWired</DefaultType>
-        <ClockSignal>clk</ClockSignal>
-        <ResetType>ASync</ResetType>
-        <ResetSignal>=__AUTO__</ResetSignal>
-        <Visibility>Public</Visibility>
-        <ReadEnableSignal></ReadEnableSignal>
-        <WriteEnableSignal></WriteEnableSignal>
-        <ReadStrobe>None</ReadStrobe>
-        <WriteStrobe>None</WriteStrobe>
-        <LatchSignal></LatchSignal>
-        <InputSideEffect>None</InputSideEffect>
-        <OutputSideEffect>None</OutputSideEffect>
-        <Volatile>False</Volatile>
-        <RequiresCustomRTL>False</RequiresCustomRTL>
-        <Testable>True</Testable>
-        <ForcedValue></ForcedValue>
-        <ForcedValueSignal></ForcedValueSignal>
-        <LinkSet></LinkSet>
-        <MSEnabled>False</MSEnabled>
-        <MSTransferSignal>transfer</MSTransferSignal>
-        <MSReadSelectSignal>read_select</MSReadSelectSignal>
-        <MSSubClockSignal>slave_clk</MSSubClockSignal>
-        <MSSubLogic>Included</MSSubLogic>
-        <Notes></Notes>
-        <PageMask></PageMask>
-        <UINotes></UINotes>
-        <UIToolTip>=__AUTO__</UIToolTip>
-        <UIUIType>=__AUTO__</UIUIType>
-        <UIWidget>=__AUTO__</UIWidget>
-        <UINumericBase>Decimal</UINumericBase>
-        <UIDataFormat>Unsigned</UIDataFormat>
-        <UIPrefix>None</UIPrefix>
-        <UIUnits>None</UIUnits>
-        <UIScale>1</UIScale>
-        <UIOffset>0</UIOffset>
-        <UIMinValue>=__AUTO__</UIMinValue>
-        <UIMaxValue>=__AUTO__</UIMaxValue>
-        <UIIncrement>1</UIIncrement>
-        <UIPolarity>ActiveHigh</UIPolarity>
-        <User>Retain=&quot;True&quot;</User>
-        <Width>1</Width>
-      </BitField>
     </BitFields>
     <RegisterMaps>
       <UID>19b42365ad5ced771ad981c48e39d9e2b5d25762</UID>
@@ -1244,13 +1079,6 @@ export(cdr;test2)</User>
                 <RegOffset>5</RegOffset>
                 <SliceWidth>1</SliceWidth>
                 <UID>108b2a0d684a9e83a5f19cbcbd04eec1</UID>
-              </BitFieldRef>
-              <BitFieldRef>
-                <BF-UID>27c4bc98e83e8c1fb5d59eee9a37eee67cbf55ed</BF-UID>	<!-- Name: wwdt_enable -->
-                <BitOffset>0</BitOffset>
-                <RegOffset>6</RegOffset>
-                <SliceWidth>1</SliceWidth>
-                <UID>2097a29fe76113337a71d7471a386fabb4d9e50d</UID>
               </BitFieldRef>
             </BitFieldRefs>
           </Register>
@@ -1456,72 +1284,6 @@ export(cdr;test2)</User>
                 <RegOffset>0</RegOffset>
                 <SliceWidth>16</SliceWidth>
                 <UID>dfd6f4437e0a56f84d89a36ac3ebb9852db1735a</UID>
-              </BitFieldRef>
-            </BitFieldRefs>
-          </Register>
-          <Register>
-            <Name>EARLY_THR</Name>
-            <UID>343b716676d881b287c32bee8cb6821f692d4b15</UID>
-            <Address>'h28</Address>
-            <ArrayEnabled>False</ArrayEnabled>
-            <ArrayLetter>n</ArrayLetter>
-            <ArrayFrom>0</ArrayFrom>
-            <ArrayTo>2</ArrayTo>
-            <ArrayBy>1</ArrayBy>
-            <ArrayStride>1</ArrayStride>
-            <Description>Early Threshold</Description>
-            <Documentation></Documentation>
-            <Exists>True</Exists>
-            <Indirect></Indirect>
-            <LinkSet></LinkSet>
-            <Notes></Notes>
-            <UINotes></UINotes>
-            <UIToolTip>=__AUTO__</UIToolTip>
-            <UIUIType>Boolean</UIUIType>
-            <UIWidget>CheckBox</UIWidget>
-            <UINumericBase>Hexadecimal</UINumericBase>
-            <User></User>
-            <Width>32</Width>
-            <BitFieldRefs>
-              <BitFieldRef>
-                <BF-UID>0eb74efd588f9e6b8dceeba31c52ea597d969f59</BF-UID>	<!-- Name: EARLY_THR -->
-                <BitOffset>0</BitOffset>
-                <RegOffset>0</RegOffset>
-                <SliceWidth>32</SliceWidth>
-                <UID>4525ec6bdec60cf0cfa2c1c0faa999e584c04d51</UID>
-              </BitFieldRef>
-            </BitFieldRefs>
-          </Register>
-          <Register>
-            <Name>LATE_THR</Name>
-            <UID>10be31a9a2f0a90dcec042ae7d8e3b3f97d9a77e</UID>
-            <Address>'h2C</Address>
-            <ArrayEnabled>False</ArrayEnabled>
-            <ArrayLetter>n</ArrayLetter>
-            <ArrayFrom>0</ArrayFrom>
-            <ArrayTo>2</ArrayTo>
-            <ArrayBy>1</ArrayBy>
-            <ArrayStride>1</ArrayStride>
-            <Description>Late Threshold</Description>
-            <Documentation></Documentation>
-            <Exists>True</Exists>
-            <Indirect></Indirect>
-            <LinkSet></LinkSet>
-            <Notes></Notes>
-            <UINotes></UINotes>
-            <UIToolTip>=__AUTO__</UIToolTip>
-            <UIUIType>Boolean</UIUIType>
-            <UIWidget>CheckBox</UIWidget>
-            <UINumericBase>Hexadecimal</UINumericBase>
-            <User></User>
-            <Width>32</Width>
-            <BitFieldRefs>
-              <BitFieldRef>
-                <BF-UID>0bef0f75732c330ea1b6c96b7d9c8a795cc73033</BF-UID>	<!-- Name: LATE_THR -->
-                <BitOffset>0</BitOffset>
-                <RegOffset>0</RegOffset>
-                <SliceWidth>32</SliceWidth>
-                <UID>5e672d5204b544933195c6aa7580e4233a2ac81d</UID>
               </BitFieldRef>
             </BitFieldRefs>
           </Register>

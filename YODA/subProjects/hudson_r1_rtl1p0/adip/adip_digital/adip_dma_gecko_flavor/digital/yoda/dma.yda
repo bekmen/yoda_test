@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module DBSchema="Primary" DBVersion="2.48">
+<Module DBSchema="Primary" DBVersion="2.46">
   <Parameters>
     <Parameter>
       <Name>NUM_CHANNELS</Name>
@@ -2462,7 +2462,7 @@ When Written:
         <ClockSignal>clk</ClockSignal>
         <ResetType>ASync</ResetType>
         <ResetSignal>=__AUTO__</ResetSignal>
-        <Visibility>Public</Visibility>
+        <Visibility>Private</Visibility>
         <ReadEnableSignal></ReadEnableSignal>
         <WriteEnableSignal></WriteEnableSignal>
         <ReadStrobe>None</ReadStrobe>
@@ -2689,7 +2689,7 @@ When Written:
         <UID>e7fccede4f40905f003157f2fe4df1f829156883</UID>
         <Access>R</Access>
         <Bundle></Bundle>
-        <DefaultValue>2</DefaultValue>
+        <DefaultValue>0</DefaultValue>
         <Description>Revision Register Indicating Trivial Changes to IP</Description>
         <Documentation></Documentation>
         <Exists>True</Exists>
