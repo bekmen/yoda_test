@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module DBSchema="Primary" DBVersion="2.44">
+  <Parameters>
+    <Parameter>
+      <Name>OIB_VERSION</Name>
+      <UID>a20d6965735d3622fc1ec10b90f3d340501d0750</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>8'h01</DefaultValue>
+      <Description>Version of OIB.</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+    <Parameter>
+      <Name>L2P1_DEFAULT_ENABLE</Name>
+      <UID>3d66564e803031820f4cfd7ec939191c7746e68a</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>=Int(Environ(&quot;L2P1_DEFAULT_ENABLE&quot;))</DefaultValue>
+      <Description>Enable L2P1 Addressing Mode by Default</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+    <Parameter>
+      <Name>L2P4_DEFAULT_ENABLE</Name>
+      <UID>6c276f69b7c8ad794d5533b8dcedf982524b9877</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>=Int(Environ(&quot;L2P4_DEFAULT_ENABLE&quot;))</DefaultValue>
+      <Description>Enable L2P4 Addressing Mode by Default</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+  </Parameters>
+  <Properties>
+    <HardwareName>oib_5nm</HardwareName>
+    <SoftwareName>&lt;Inherit&gt;</SoftwareName>
+    <Description>OTP 5nm Interface Block</Description>
+    <Documentation>Registers added for OIB.</Documentation>
+    <Address>'h0000</Address>
+    <AddressUnitBits>8</AddressUnitBits>
+    <ByteOrder>LittleEndian</ByteOrder>
+    <AddressWidth>'d13</AddressWidth>
+    <BitFieldScope>Global</BitFieldScope>
+    <RegisterScope>Local</RegisterScope>
+    <ReserveOption>AutomaticReadZero</ReserveOption>
+    <NameSpaceProtection>True</NameSpaceProtection>
+    <EnumerationScope>Local</EnumerationScope>
+    <MemoryAccessMethod>MemoryMappedRegister</MemoryAccessMethod>
+    <Notes>Your module engineering notes, here.</Notes>
+    <User></User>
+    <GeneratorOptions></GeneratorOptions>
+    <Dictionary>Lifecycle bitfield bitfields</Dictionary>
+    <ModuleEditMode>Engineering</ModuleEditMode>
+    <DocSetToUse>DS1</DocSetToUse>
+  </Properties>
+  <PageMasks>
+  </PageMasks>
+  <Ports>
+  </Ports>
+  <MemoryMap>
+    <BitFields>
+      <UID>ea49d478087ca211cfcd89f7f417c228ae6d52bf</UID>
+      <BitField>
+        <Name>block_h</Name>
+        <UID>01283e3be6b6371d6cee65d67beb0ddf87cfdd6c</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>State of the Block_h Register</Description>
+        <Documentation>The Block_h register is set when the Host writes to address APB_DAP_OTP_ADDR1 resulting in AM == 0.
+
+Once set, all subsequent Host reads will be terminated with PSLVERR. Block_h can only be cleared with a write to APB_DAP_OTP_ADDR1 resulting on AM !=0 and AM &lt;= NUM_SECTOR.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+      <BitField>
+        <Name>extra</Name>
+        <UID>f2a3f44fea54bca127174646fb8562771feead10</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>PRDATA_EXTRA</Description>
+        <Documentation>This 32-bit read-only value is associated with the last read value over the XHF Read Interface.
+
+
+Synopsys defines this value as:
+
+
+{SYNDRM1[7:0], QSR[7:6], READY, PWROK, SEC, DED, SEC1, DED1, RDATA[47:32]}</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>32</Width>
+      </BitField>
+      <BitField>
+        <Name>l2p1_enable</Name>
+        <UID>9d9cc154c582f8132587f50c45cd5206e1386421</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>=L2P1_DEFAULT_ENABLE</DefaultValue>
+        <Description>Logical to Physical by 1 Addressing Mode Enable</Description>
+        <Documentation>Setting this bit enables Logical to physical by 1 addressing mode on the XHF Read Interface.
+
+L2P1 addressing mode is applied to APB bus as follows:
+
+log2phys = { addr[13:8], 1'b0, addr[7:2], 1'b0, addr[1:0] };</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+      <BitField>
+        <Name>l2p4_enable</Name>
+        <UID>32ed30a8c3034444dc20ae9f346fe78278e642ff</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>=L2P4_DEFAULT_ENABLE</DefaultValue>
+        <Description>Logical to Physical by 4 Addressing Mode Enable</Description>
+        <Documentation>Setting this bit enables Logical to physical by 4 addressing mode on the XHF Read Interface.
+
+
+L2P4 addressing mode is applied to APB bus as follows:
+
+log2phys = { 2'b00, addr[13:10], 1'b0, addr[9:4], 1'b0, addr[3:2] };</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+      <BitField>
+        <Name>read_mode</Name>
+        <UID>52ee3a38890d8177864761e59481eb69e22f08a8</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>OTP Read Mode</Description>
+        <Documentation>This bitfield is initially set with the value of indicated on RDMDBIT[2:0] input from the XFC controller. It can be overwritten to change the OTP read mode for future reads. This bitfield is used with the l2p1/l2p4 bitfields to generate the OTP address during accesses to  XHF read interface.
+
+00: single-ended (RDMDBIT[2] = 1)
+
+01: redundant (RDMDBIT[0] = 1)
+
+10: differential (RDMDBIT[1] = 1)
+
+11: rsvd
+
+NOTE: Changing this bitfield does not change or directly reflect the OTP IP read mode except the initial read mode set by RDMDBIT. SW writes to the OTP IP to change the IP read mode. This bitfield should be written prior to changing the OTP IP read mode to track the IP mode.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>SyncUpdate</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>2</Width>
+      </BitField>
+      <BitField>
+        <Name>version</Name>
+        <UID>f4275034fd38c9856d3e92ee816ec9fb38c18eab</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>=OIB_VERSION</DefaultValue>
+        <Description>HW Version</Description>
+        <Documentation>Read-only HW version.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>8</Width>
+      </BitField>
+      <BitField>
+        <Name>xc_dctrl</Name>
+        <UID>635b534a102aaed1b7a38b18601bf1429039f9e3</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Value to Drive into XFC DCTRL</Description>
+        <Documentation>This bit is used to drive the XFC controller input DCTL.
+
+0: Use XFC DAP_IF_CTRL to select XFC controller (=1) or XHF read interface (=0).
+
+1: Only XHF read interface is available.
+
+Normally do not use xc_dctrl to change XFC and XHF access control. Use DAP_IF_CONTROL.
+
+DAP_IF_CTRL [3:2]: 
+
+00 = XHF read interface selected 
+
+11 = XFC controller interface selected</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+    </BitFields>
+    <RegisterMaps>
+      <UID>09b02f0b006de4d79fc076e7c74989f8ebed9fc6</UID>
+      <RegisterMap>
+        <Name>oib_5nm</Name>
+        <UID>f6a269ade802bc1bbe49cab6e18b91a9329b0ac4</UID>
+        <Address>'h0</Address>
+        <Description>Tiny Enclave OTP Register Control and Configuration.</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <Notes></Notes>
+        <User></User>
+        <Registers>
+          <Register>
+            <Name>l2p_mode_enable</Name>
+            <UID>a3e4e584d5daf8cfaee2ac2aabe73a492019a070</UID>
+            <Address>'h004</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>Enhanced Addressing Mode Enables</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>9d9cc154c582f8132587f50c45cd5206e1386421</BF-UID>	<!-- Name: l2p1_enable -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>1</SliceWidth>
+                <UID>512241780ac0720977a2c42e21f9147f6ab3cea2</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>32ed30a8c3034444dc20ae9f346fe78278e642ff</BF-UID>	<!-- Name: l2p4_enable -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>1</RegOffset>
+                <SliceWidth>1</SliceWidth>
+                <UID>71db5651777ec5dd9fea1165ddbdd360ce6b50c4</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>xc_dctrl</Name>
+            <UID>bb26a0c154c025cf9275621df651ef704b326850</UID>
+            <Address>'h008</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>XFC DCTRL Input Drive Value</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>635b534a102aaed1b7a38b18601bf1429039f9e3</BF-UID>	<!-- Name: xc_dctrl -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>1</SliceWidth>
+                <UID>81fd295c6891ee1828d65be6ed97e3056a33b509</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>read_mode</Name>
+            <UID>13646b86e1b1baadca2bc990980d449af3051e13</UID>
+            <Address>'h00c</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>Set to Required Read Mode of XHF Read Interface</Description>
+            <Documentation>This register is set by FW to reflect the read mode on the XHF read interface.
+A separate write to the XFC DAP_CONTROL may be required to match the OIB read_mode.
+The initial value is set from input RDMDBIT[1:0].
+
+00: single-ended
+
+01: redundant
+
+10: differential
+
+11: redundant</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>52ee3a38890d8177864761e59481eb69e22f08a8</BF-UID>	<!-- Name: read_mode -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>2</SliceWidth>
+                <UID>7034feacc03379309b6824076d7f8bdcda8a867a</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>oib_status</Name>
+            <UID>5253ee36fc3b11dd5ee3d9c746b5a93c028aa808</UID>
+            <Address>'h020</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>OIB Status Bits</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>01283e3be6b6371d6cee65d67beb0ddf87cfdd6c</BF-UID>	<!-- Name: block_h -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>1</SliceWidth>
+                <UID>48a1e8169a259d90e95534b3142ce0b4890202a9</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>prdata_extra</Name>
+            <UID>0da6ad14ab51a420fa52af823efdb4d4f987c6fe</UID>
+            <Address>'h100</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>PRDATA Extra Value from PreviousXHF Read</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>f2a3f44fea54bca127174646fb8562771feead10</BF-UID>	<!-- Name: extra -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>32</SliceWidth>
+                <UID>5dbf7821116afdb8ce56d9376571eafb4f03d0e2</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>version</Name>
+            <UID>ac4203cf4d8b198c7cca54f43082021ea9e2f4c6</UID>
+            <Address>'h3FC</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <Description>HW Version</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>f4275034fd38c9856d3e92ee816ec9fb38c18eab</BF-UID>	<!-- Name: version -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SliceWidth>8</SliceWidth>
+                <UID>757e3490d26a147d0ae3275f7c4e0312f3dbb2b1</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+        </Registers>
+      </RegisterMap>
+    </RegisterMaps>
+    <MemoryRegions>
+      <UID>82d84a7cc9f33afd13cceeb68d8eb4ad56aa9bbd</UID>
+    </MemoryRegions>
+  </MemoryMap>
+  <Instances>
+  </Instances>
+  <Interrupts>
+  </Interrupts>
+  <Triggers>
+  </Triggers>
+  <DMAChannels>
+  </DMAChannels>
+  <ChipSignals>
+  </ChipSignals>
+  <Pads>
+  </Pads>
+  <Packages>
+  </Packages>
+  <FunctionalGroups>
+    <UID>40f1bf0852ae0bbe8d25f4efb051e14688c88d52</UID>
+  </FunctionalGroups>
+  <Suppressions>
+  </Suppressions>
+</Module>

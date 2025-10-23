@@ -462,7 +462,7 @@
         <Access>R</Access>
         <Bundle></Bundle>
         <DefaultValue>0</DefaultValue>
-        <Description>Auto Baud Counter Value Low 21 Bits</Description>
+        <Description>Auto Baud Counter Value Low 12 Bits</Description>
         <DocSets>
           <Set1>
             <Name>CNT</Name>
@@ -2003,7 +2003,7 @@
           <EnumElement>
             <Name>FIRST</Name>
             <UID>8e9bedfedc631f59db49fad92149e861e536b278</UID>
-            <Description>First Edge</Description>
+            <Description>First Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2017,7 +2017,7 @@
           <EnumElement>
             <Name>SECOND</Name>
             <UID>44456a72fd0902e2305480865ad25c8674b8d413</UID>
-            <Description>Second Edge</Description>
+            <Description>Second Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2031,7 +2031,7 @@
           <EnumElement>
             <Name>THIRD</Name>
             <UID>f902e5cafffe6217c3b311e808cb184d22854e11</UID>
-            <Description>Third Edge</Description>
+            <Description>Third Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2045,7 +2045,7 @@
           <EnumElement>
             <Name>FOURTH</Name>
             <UID>832e86913b539a59ff2e5625fb99433a7ec00342</UID>
-            <Description>Fourth Edge</Description>
+            <Description>Fourth Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2059,7 +2059,7 @@
           <EnumElement>
             <Name>FIFTH</Name>
             <UID>62d0458e1e456bd82a4029ca0f69d9159a01fd62</UID>
-            <Description>Fifth Edge</Description>
+            <Description>Fifth Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2073,7 +2073,7 @@
           <EnumElement>
             <Name>SIXTH</Name>
             <UID>ab9086e0779e319f1d2da1420b58db23b201108f</UID>
-            <Description>Sixth Edge</Description>
+            <Description>Sixth Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2087,7 +2087,7 @@
           <EnumElement>
             <Name>SEVENTH</Name>
             <UID>2316aa3b06fe2e21585a02142cee493994a84309</UID>
-            <Description>Seventh Edge</Description>
+            <Description>Seventh Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2101,7 +2101,7 @@
           <EnumElement>
             <Name>EIGHTH</Name>
             <UID>0ae811d70fc87289862121321a6844e47f3a18d6</UID>
-            <Description>Eighth Edge</Description>
+            <Description>Eighth Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -2115,7 +2115,7 @@
           <EnumElement>
             <Name>NINTH</Name>
             <UID>31044a8ad1bdbd1d8424e75a23338a2c7d295581</UID>
-            <Description>Ninth Edge</Description>
+            <Description>Ninth Edge. Both Raising and Falling Edge Included</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -3408,7 +3408,7 @@
         <UID>3cf3d8fc8911f69dbab5a9b75fa9d80c7265c14f</UID>
         <Access>R</Access>
         <Bundle></Bundle>
-        <DefaultValue>1</DefaultValue>
+        <DefaultValue>2</DefaultValue>
         <Description>Revisioning to indicate minor changes to IP</Description>
         <Documentation></Documentation>
         <Exists>True</Exists>
@@ -4430,12 +4430,12 @@
         <Width>16</Width>
       </BitField>
       <BitField>
-        <Name>RBR_TBR</Name>
+        <Name>RBR_THR</Name>
         <UID>a6dd865dd692ae414086f785037fd221</UID>
         <Access>R/W</Access>
         <Bundle></Bundle>
         <DefaultValue>'h0</DefaultValue>
-        <Description>Receive/Transmit Buffer Register During Receive/Transmit</Description>
+        <Description>Receive Buffer Register_Transmit Hold Register. Transmit hold register, this is write only register, holds the written data byte to be transmitted via the serial output. Receive buffer register, this is read only register, holds the received data byte from serial input. During write, data is written to THR. During read, data is read from RBR</Description>
         <Documentation></Documentation>
         <Exists>True</Exists>
         <HSType>Both</HSType>
@@ -5143,6 +5143,60 @@
         </EnumElements>
       </BitField>
       <BitField>
+        <Name>RTS_THRESHOLD</Name>
+        <UID>027d94723953fc8803db3d3fb258ba580b7bc4b2</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>F</DefaultValue>
+        <Description>The RTS (Request to Send) signal is automatically De-asserted when the receive FIFO (RX FIFO) exceeds the predefined RTS threshold level, indicating that the receiver cannot accept more data.</Description>
+        <Documentation></Documentation>
+        <Exists>=(ModemExists ==1)? True : False</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>4</Width>
+      </BitField>
+      <BitField>
         <Name>RXINV</Name>
         <UID>1b8c142b2e30cb62ba8f0d962b8156526c8ba551</UID>
         <Access>R/W</Access>
@@ -5417,7 +5471,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>SECOND</Name>
             <UID>617417b67cd26986dfbd3140fdd036a15c2714ce</UID>
-            <Description>Second Edge</Description>
+            <Description>Second Edge. Implies First Rising Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5431,7 +5485,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>THIRD</Name>
             <UID>45e69e6128c7e573e726f636c6bdc81db50b944d</UID>
-            <Description>Third Edge</Description>
+            <Description>Third Edge. Implies First Falling Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5445,7 +5499,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>FOURTH</Name>
             <UID>13d34c12d0295d7d98dbba8b507efd493be595ff</UID>
-            <Description>Fourth Edge</Description>
+            <Description>Fourth Edge. Implies Second Rising Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5459,7 +5513,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>FIFTH</Name>
             <UID>da64ded022fc32925bf642b3d0b65f9139c3932f</UID>
-            <Description>Fifth Edge</Description>
+            <Description>Fifth Edge. Implies Second Falling Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5473,7 +5527,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>SIXTH</Name>
             <UID>9356e655c6e7060d1d46a74184a708919865482b</UID>
-            <Description>Sixth Edge</Description>
+            <Description>Sixth Edge. Implies Third Rising Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5487,7 +5541,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>SEVENTH</Name>
             <UID>270aa660b9ec2827dd1962d78a59545dfdf862a2</UID>
-            <Description>Seventh Edge</Description>
+            <Description>Seventh Edge. Implies Third Falling Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5501,7 +5555,7 @@ Writable with any value from 0 to 255. A read will return the last value written
           <EnumElement>
             <Name>EIGHTH</Name>
             <UID>905301821e7e2f6fbcf214b2f77f7eb9fec536f1</UID>
-            <Description>Eighth Edge</Description>
+            <Description>Eighth Edge. Implies Fourth Rising Edge After Start Bit</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Notes></Notes>
@@ -5688,7 +5742,7 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
           <EnumElement>
             <Name>MODEMINT</Name>
             <UID>0a74c4ef22caab8688855aec2123e220</UID>
-            <Description>Modem Status Interrupt (Read COMMSR to Clear)</Description>
+            <Description>Modem Status Interrupt (Read COMMSR to Clear). This field is applicable only if MODEM feature is enabled</Description>
             <DocSets>
               <Set1>
                 <Description>Modem Status Interrupt (Read MSR Register to Clear)</Description>
@@ -6362,7 +6416,7 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
         <UID>18cb78f404d0f3e5cd3b29744cdd7bce401805ac</UID>
         <Access>R</Access>
         <Bundle></Bundle>
-        <DefaultValue>0</DefaultValue>
+        <DefaultValue>1</DefaultValue>
         <Description>Revisioning to indicate trivial changes to IP</Description>
         <Documentation></Documentation>
         <Exists>True</Exists>
@@ -6566,7 +6620,7 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
             <Width>16</Width>
             <BitFieldRefs>
               <BitFieldRef>
-                <BF-UID>a6dd865dd692ae414086f785037fd221</BF-UID>	<!-- Name: RBR_TBR -->
+                <BF-UID>a6dd865dd692ae414086f785037fd221</BF-UID>	<!-- Name: RBR_THR -->
                 <BitOffset>0</BitOffset>
                 <RegOffset>0</RegOffset>
                 <SliceWidth>8</SliceWidth>
@@ -6596,7 +6650,7 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
             </BitFieldRefs>
           </Register>
           <Register>
-            <Name>COMIEN</Name>
+            <Name>COMIER</Name>
             <UID>062a57436676e66c03deeb76871d5a09</UID>
             <Address>'h4</Address>
             <ArrayEnabled>False</ArrayEnabled>
@@ -6863,6 +6917,13 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
                 <RegOffset>5</RegOffset>
                 <SliceWidth>1</SliceWidth>
                 <UID>05de26977498ef99c83b236b4acfa9f2dfcdca5d</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>027d94723953fc8803db3d3fb258ba580b7bc4b2</BF-UID>	<!-- Name: RTS_THRESHOLD -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>6</RegOffset>
+                <SliceWidth>4</SliceWidth>
+                <UID>8c98db366875caab3e35fefb3d2400b7d9542768</UID>
               </BitFieldRef>
             </BitFieldRefs>
           </Register>
@@ -7648,7 +7709,7 @@ EPS = X and PEN = 0, no parity will be transmitted</Documentation>
             <ArrayTo>2</ArrayTo>
             <ArrayBy>1</ArrayBy>
             <ArrayStride>1</ArrayStride>
-            <Description>ID register</Description>
+            <Description>ID Register</Description>
             <Documentation></Documentation>
             <Exists>True</Exists>
             <Indirect></Indirect>
