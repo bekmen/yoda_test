@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module DBSchema="Primary" DBVersion="2.49">
+  <Parameters>
+    <Parameter>
+      <Name>NUM_SECTORS</Name>
+      <UID>d9d7c1e0c4de8a577aa6aef8a7a4884a693e11e1</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>2</DefaultValue>
+      <Description>OTP Array Sector Count</Description>
+      <Documentation>OTP array instance dedicated to hold the secure region for Tiny Enclave.</Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+  </Parameters>
+  <Properties>
+    <HardwareName>otp_5nm_top</HardwareName>
+    <SoftwareName>&lt;Inherit&gt;</SoftwareName>
+    <Description>OTP Subsystem Address Map.</Description>
+    <Documentation>5nm OTP Address Map. 
+
+Instantiates three yda files: oib_5nm, otp_5nm_xfc, and otp_5nm_xhf.</Documentation>
+    <Address>'h0000</Address>
+    <AddressUnitBits>8</AddressUnitBits>
+    <ByteOrder>LittleEndian</ByteOrder>
+    <AddressWidth>'d15</AddressWidth>
+    <BitFieldScope>Global</BitFieldScope>
+    <RegisterScope>Local</RegisterScope>
+    <ReserveOption>AutomaticReadZero</ReserveOption>
+    <NameSpaceProtection>True</NameSpaceProtection>
+    <EnumerationScope>Local</EnumerationScope>
+    <MemoryAccessMethod>MemoryMappedRegister</MemoryAccessMethod>
+    <Notes>Your module engineering notes, here.</Notes>
+    <User>ADI_CHIPLVL_ADDR_BITS=&quot;15&quot;</User>
+    <UserExtensions></UserExtensions>
+    <GeneratorOptions></GeneratorOptions>
+    <Dictionary></Dictionary>
+    <VariantContext>Generic</VariantContext>
+    <ModuleEditMode>Engineering</ModuleEditMode>
+    <DocSetToUse>DS1</DocSetToUse>
+  </Properties>
+  <PageMasks>
+  </PageMasks>
+  <PhaseMasks>
+  </PhaseMasks>
+  <Ports>
+  </Ports>
+  <MemoryMap>
+    <BitFields>
+      <UID>2d2aa3dcb6aee30e7ac0b1b09c32ca404d5d9400</UID>
+    </BitFields>
+    <RegisterMaps>
+      <UID>2484d686030b03e39c31e7e72813bf39b36a18b8</UID>
+    </RegisterMaps>
+    <MemoryRegions>
+      <UID>2fa33d49d94baaa9221a2a53e44b1f823e21d5db</UID>
+    </MemoryRegions>
+  </MemoryMap>
+  <Instances>
+    <Instance>
+      <Name>otp_5nm_xfc</Name>
+      <UID>ae0683b0028b94eb76bb520d85d71ba996123281</UID>
+      <Address>15'h0</Address>
+      <ArrayEnabled>False</ArrayEnabled>
+      <ArrayLetter>n</ArrayLetter>
+      <ArrayFrom>0</ArrayFrom>
+      <ArrayTo>2</ArrayTo>
+      <ArrayBy>1</ArrayBy>
+      <ArrayStride>1</ArrayStride>
+      <Description>Register Map.</Description>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <Module>=Environ(&quot;DIG_ROOT&quot;) + &quot;/subsystems/sss/yoda/OTP.yda&quot;</Module>
+      <Notes></Notes>
+      <User></User>
+    </Instance>
+    <Instance>
+      <Name>oib_5nm</Name>
+      <UID>03e580c83610e8ad662bf2111eb29bb6626fd352</UID>
+      <Address>15'h2000</Address>
+      <ArrayEnabled>False</ArrayEnabled>
+      <ArrayLetter>n</ArrayLetter>
+      <ArrayFrom>0</ArrayFrom>
+      <ArrayTo>2</ArrayTo>
+      <ArrayBy>1</ArrayBy>
+      <ArrayStride>1</ArrayStride>
+      <Description>Register Map.</Description>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <Module>=Environ(&quot;STE_HW_ROOT&quot;)+&quot;/ip/otp_5nm_if_blk/yoda/oib_5nm.yda&quot;</Module>
+      <Notes></Notes>
+      <User></User>
+    </Instance>
+    <Instance>
+      <Name>otp_5nm_xhf</Name>
+      <UID>6e4538e267d0114d1a197441bacdd63dc9942309</UID>
+      <Address>15'h4000</Address>
+      <ArrayEnabled>False</ArrayEnabled>
+      <ArrayLetter>n</ArrayLetter>
+      <ArrayFrom>0</ArrayFrom>
+      <ArrayTo>2</ArrayTo>
+      <ArrayBy>1</ArrayBy>
+      <ArrayStride>1</ArrayStride>
+      <Description>Register Map.</Description>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <Module>=Environ(&quot;DIG_ROOT&quot;)+&quot;/subsystems/sss/yoda/temporary_yoda_fix/otp_5nm_xhf.yda&quot;</Module>
+      <Notes></Notes>
+      <User></User>
+    </Instance>
+  </Instances>
+  <Interrupts>
+  </Interrupts>
+  <Triggers>
+  </Triggers>
+  <DMAChannels>
+  </DMAChannels>
+  <ChipSignals>
+  </ChipSignals>
+  <Pads>
+  </Pads>
+  <Packages>
+  </Packages>
+  <FunctionalGroups>
+    <UID>e4e324858833d7f4dcb29fad8d53c4b613d73881</UID>
+  </FunctionalGroups>
+  <Suppressions>
+  </Suppressions>
+</Module>

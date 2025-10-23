@@ -1,0 +1,4260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module DBSchema="Primary" DBVersion="2.49">
+  <Parameters>
+    <Parameter>
+      <Name>NUM_CHANNELS</Name>
+      <UID>2dfec29e6e01cdb8e63a7ac79a0fa4a2f27f5825</UID>
+      <Condition>True</Condition>
+      <DataType>Integer</DataType>
+      <DefaultValue>16</DefaultValue>
+      <Description>Number of DMA Channels Implemented in This Instance</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+    <Parameter>
+      <Name>Set_Prop_Inc2</Name>
+      <UID>7d9417412dee891fd2fa9f3602b2e05608311c0b</UID>
+      <Condition>True</Condition>
+      <DataType>Boolean</DataType>
+      <DefaultValue>False</DefaultValue>
+      <Description>For Controlling the INC2 Out Without Affecting RTL Out</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+    <Parameter>
+      <Name>Single_req_enable</Name>
+      <UID>6df779bd042fe79983f38e979decc2c6140d5388</UID>
+      <Condition>True</Condition>
+      <DataType>Boolean</DataType>
+      <DefaultValue>False</DefaultValue>
+      <Description>When HIGH Supports Single Request</Description>
+      <Documentation></Documentation>
+      <Notes></Notes>
+      <Scope>Input</Scope>
+      <User></User>
+      <Visibility>Private</Visibility>
+    </Parameter>
+  </Parameters>
+  <Properties>
+    <HardwareName>DMA</HardwareName>
+    <SoftwareName>&lt;Inherit&gt;</SoftwareName>
+    <Description>DMA</Description>
+    <Documentation>DMA</Documentation>
+    <Address>'h0</Address>
+    <AddressUnitBits>8</AddressUnitBits>
+    <ByteOrder>LittleEndian</ByteOrder>
+    <AddressWidth>'d12</AddressWidth>
+    <BitFieldScope>Register</BitFieldScope>
+    <RegisterScope>=Set_Prop_Inc2?&quot;Global&quot;:&quot;Local&quot;</RegisterScope>
+    <ReserveOption>AutomaticReadZero</ReserveOption>
+    <NameSpaceProtection>True</NameSpaceProtection>
+    <EnumerationScope>=Set_Prop_Inc2?&quot;Local&quot;:&quot;Local&quot;</EnumerationScope>
+    <MemoryAccessMethod>MemoryMappedRegister</MemoryAccessMethod>
+    <Notes>Your module engineering notes, here.</Notes>
+    <User></User>
+    <UserExtensions></UserExtensions>
+    <GeneratorOptions></GeneratorOptions>
+    <Dictionary></Dictionary>
+    <VariantContext>Generic</VariantContext>
+    <ModuleEditMode>Engineering</ModuleEditMode>
+    <DocSetToUse>DS1</DocSetToUse>
+  </Properties>
+  <PageMasks>
+  </PageMasks>
+  <PhaseMasks>
+  </PhaseMasks>
+  <Ports>
+    <Port>
+      <Name>CHAN_ERR</Name>
+      <UID>27ce5303222d0c36d3714ef9123015e77bb6fcc2</UID>
+      <ArrayEnabled>False</ArrayEnabled>
+      <ArrayLetter>n</ArrayLetter>
+      <ArrayFrom>0</ArrayFrom>
+      <ArrayTo>2</ArrayTo>
+      <ArrayBy>1</ArrayBy>
+      <ChipSignal>False</ChipSignal>
+      <DMAChannel>False</DMAChannel>
+      <Description>Channel Error</Description>
+      <Direction>InOut</Direction>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <Interrupt>True</Interrupt>
+      <Notes></Notes>
+      <Polarity>ActiveHigh</Polarity>
+      <PortType>I/O</PortType>
+      <Sensitivity>None</Sensitivity>
+      <Trigger>None</Trigger>
+      <User></User>
+      <Visibility>Public</Visibility>
+      <Width>1</Width>
+    </Port>
+    <Port>
+      <Name>CH_DONE</Name>
+      <UID>8c97b452950e8ac5b651593484abaa33a29ada7c</UID>
+      <ArrayEnabled>True</ArrayEnabled>
+      <ArrayLetter>n</ArrayLetter>
+      <ArrayFrom>0</ArrayFrom>
+      <ArrayTo>=(NUM_CHANNELS-1)</ArrayTo>
+      <ArrayBy>1</ArrayBy>
+      <ChipSignal>False</ChipSignal>
+      <DMAChannel>False</DMAChannel>
+      <Description>Channel N Done</Description>
+      <Direction>InOut</Direction>
+      <Documentation></Documentation>
+      <Exists>True</Exists>
+      <Interrupt>True</Interrupt>
+      <Notes></Notes>
+      <Polarity>ActiveHigh</Polarity>
+      <PortType>I/O</PortType>
+      <Sensitivity>None</Sensitivity>
+      <Trigger>None</Trigger>
+      <User></User>
+      <Visibility>Public</Visibility>
+      <Width>1</Width>
+    </Port>
+  </Ports>
+  <MemoryMap>
+    <BitFields>
+      <UID>d00f2a16cf4b5aeb97d460186850873dbc8d0c61</UID>
+      <BitField>
+        <Name>ALTCBPTR</Name>
+        <UID>fdf2e7fd27fb0383bd6a2a79914e88950d29afe8</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>=2-&gt;pow(NUM_CHANNELS-&gt;clog2()+4)</DefaultValue>
+        <Description>Base Address of the Alternate Data Structure</Description>
+        <DocSets>
+          <Set1>
+            <Name>ADDR</Name>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Base address of the alternate data structure</UINotes>
+        <UIToolTip>Base address of the alternate data structure</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>32</Width>
+      </BitField>
+      <BitField>
+        <Name>CHADRDECCLR</Name>
+        <UID>91f3e426f7e25e645083ec65f3e3e80469faf5cb</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Disable Source Address Decrement</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>The ${.:DMASRCADCLR} write-only register enables the user to configure a DMA channel to use the default source address in increment mode. Each bit of the register represents the corresponding channel number in the DMA controller.  $[/p$]$[p$]
+
+
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+
+&#8230;$[/p$]$[p$]
+
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+
+
+When Written:$[/p$]$[p$]
+
+${.:.:.}[C] = 0, No effect. Use the ${.:DMASRCADSSET} register to enable source address decrement on channel C.$[/p$]$[p$]
+
+${.:.:.}[C] = 1, Disables Address source decrement on channel C.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>The DMASRCADCLR register enables the user to configure a DMA channel to use the default source address in increment mode. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+
+
+Bit 0 corresponds to DMA channel 0
+
+&#8230;
+
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMASRCADSET register
+Bit [C] = 0, Channel C Source Address decrement is disabled.
+Bit [C] = 1, Channel C Source Address decrement is enabled.
+
+When Written:
+
+Bit [C] = 0, No effect. Use the DMASRCADSET register to enable source address decrement on channel C
+
+Bit [C] = 1, Disables Address source decrement on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Disable source address decrement</UINotes>
+        <UIToolTip>Disable source address decrement</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHADRDECCLR</Name>
+        <UID>d0dcccab3df33493ae018fbfd81bd4a847db4e00</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Disable Destination Address Decrement</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>The ${.:DMADSTADCLR} write-only register enables the user to configure a DMA channel to use the default destination  address in increment mode. Each bit of the register represents the corresponding channel number in the DMA controller.  $[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMADSTADSET} register to enable destination address decrement on channel C.$[/p$]$[p$]
+${.:.:.}[C] = 1, Disables destination address decrement on channel C.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>The DMAADDSTCLR register enables the user to configure a DMA channel to use the default destination  address in increment mode. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMAADSET register
+Bit [C] = 0, Channel C destination address decrement is disabled.
+Bit [C] = 1, Channel C destination address decrement is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAADSET register to enable destination address decrement on channel C
+Bit [C] = 1, Disables destination address decrement on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Disable destination address decrement</UINotes>
+        <UIToolTip>Disable destination address decrement</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHBSWAPCLR</Name>
+        <UID>fa5e3e285e9100364d9ec67b53dd253443a96e7f</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Disable Byte Swap</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>The ${.:DMABSCLR} write-only register enables the user to configure a DMA channel to not use byte swapping and use the default operation. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMABSSET} register to enable byte swap on channel C.$[/p$]$[p$]
+${.:.:.}[C] = 1, Disables Byte Swap on channel C.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>The DMABSCLR register enables the user to configure a DMA channel to not use byte swapping and use the default operation. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMABSSET register
+Bit [C] = 0, Channel C Byte Swap is disabled.
+Bit [C] = 1, Channel C Byte Swap is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMABSSET register to enable byte swap on channel C.
+Bit [C] = 1, Disables Byte Swap on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Disable byte swap</UINotes>
+        <UIToolTip>Disable byte swap</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHBSWAPSET</Name>
+        <UID>11fc6bde805f747fcacc4482546187db441b1b85</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Byte Swap Status</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register is used to configure a DMA channel to use byte swap. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel 0 and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+${.:.:.}[C] = 0, Channel C Byte Swap is disabled.
+${.:.:.}[C] = 1, Channel C Byte Swap is enabled.
+
+When Written:
+${.:.:.}[C] = 0, No effect. Use the ${.:DMABSCLR} register to disable byte swap on channel C
+${.:.:.}[C] = 1, Enables Byte Swap on channel C.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register is used to configure a DMA channel to use byte swap. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel 0 and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, Channel C Byte Swap is disabled.
+Bit [C] = 1, Channel C Byte Swap is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMABSCLR register to disable byte swap on channel C
+Bit [C] = 1, Enables Byte Swap on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Byte swap status</UINotes>
+        <UIToolTip>Byte swap status</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHDSTADRDECSET</Name>
+        <UID>d0d462d02e608e855e701d3d575a4a9456934512</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Destination Address Decrement Status</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>The ${.:DMADSTADSET} register is used to configure the destination address of a DMA channel to decrement the address instead of incrementing the address after each access. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1.$[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+${.:.:.}[C] = 0, Channel C destination address decrement is disabled.$[/p$]$[p$]
+${.:.:.}[C] = 1, Channel C destination address decrement is enabled.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMADSTADCLR} register to disable destination address decrement on channel C.$[/p$]$[p$]
+${.:.:.}[C] = 1, Enables destination address decrement on channel C.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register is used to configure the destination address of a DMA channel to decrement the address instead of incrementing the address after each access. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, Channel C destination address decrement is disabled.
+Bit [C] = 1, Channel C destination address decrement is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAdstADCLR register to disable destination address decrement on channel C
+Bit [C] = 1, Enables destination address decrement on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Destination Address decrement status / configure destination address decrement</UINotes>
+        <UIToolTip>Destination Address decrement status / configure destination address decrement</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHENCLR</Name>
+        <UID>bdc80f613e1df66dbeb76f98fc6591fbf865429f</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Disable DMA Channels</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register allows for the disabling of DMA channels. This register is write only. Each bit of the register represents the corresponding channel number in the DMA controller. Note: The controller disables a channel automatically, by setting the appropriate bit, when it completes the DMA cycle.
+Set the appropriate bit to disable the corresponding channel.$[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAENSET} register to enable the channel.$[/p$]$[p$]
+${.:.:.}[C] = 1, Disables channel C.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register allows for the disabling of DMA channels. Each bit of the register represents the corresponding channel number in the DMA controller. Note: The controller disables a channel automatically, by setting the appropriate bit, when it completes the DMA cycle.
+Set the appropriate bit to disable the corresponding channel.
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMAENSET register
+Bit [C] = 0, Channel C is disabled.
+Bit [C] = 1, Channel C is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAENSET register to enable the channel.
+Bit [C] = 1, Disables channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Disable DMA channels</UINotes>
+        <UIToolTip>Disable DMA channels</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHENSET</Name>
+        <UID>8042c0441ff2088f4eac6b9990098635da1e5e01</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Enable DMA Channels</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register allows for the enabling of DMA channels. Reading the register returns the enable status of the channels. Each bit of the register represents the corresponding channel number in the DMA controller.  
+Set the appropriate bit to enable the corresponding channel.$[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M -1$[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+${.:.:.}[C] = 0, Channel C is disabled.$[/p$]$[p$]
+${.:.:.}[C] = 1, Channel C is enabled.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAENCLR} register to disable the channel.$[/p$]$[p$]
+${.:.:.}[C] = 1, Enables channel C.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register allows for the enabling of DMA channels. Reading the register returns the enable status of the channels. Each bit of the register represents the corresponding channel number in the DMA controller.  
+Set the appropriate bit to enable the corresponding channel.
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M -1
+
+When Read:
+Bit [C] = 0, Channel C is disabled.
+Bit [C] = 1, Channel C is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAENCLR register to disable the channel.
+Bit [C] = 1, Enables channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Enable DMA channels</UINotes>
+        <UIToolTip>Enable DMA channels</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHNLSM1</Name>
+        <UID>44a7859eb09061f43aef79db95381c2786a6f220</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>=(NUM_CHANNELS-1)</DefaultValue>
+        <Description>Number of Available DMA Channels Minus 1</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHANM1</Name>
+            <Documentation>With \eval{NUM_CHANNELS} channels available, the register will read back \eval{&quot;0x&quot;+((NUM_CHANNELS-1)-&gt;int())-&gt;fmt(0,16)}.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>With \eval{NUM_CHANNELS} channels available, the register will read back \eval{&quot;0x&quot;+((NUM_CHANNELS-1)-&gt;int())-&gt;fmt(0,16)}.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Number of available DMA channels minus 1</UINotes>
+        <UIToolTip>Number of available DMA channels minus 1</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>8</Width>
+      </BitField>
+      <BitField>
+        <Name>CHNL_ERR_CLR</Name>
+        <UID>b727064d3024df152458d704063531711cdf25fe</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Per Channel Bus Error Status/Clear</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register is used to read and clear the per channel DMA bus error status. The error status is set if the controller encountered a bus error while performing a transfer. If a bus error occurs on a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. $[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+
+0: No bus error occurred.$[/p$]$[p$]
+
+1: A bus error control is pending.$[/p$]$[p$]
+
+
+
+When Written:$[/p$]$[p$]
+
+
+0: No effect.$[/p$]$[p$]
+
+
+1: Bit is cleared.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register is used to read and clear the per channel DMA bus error status. The error status is set if the controller encountered a bus error while performing a transfer. If a bus error occurs on a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. 
+
+
+
+
+
+When Read:
+
+
+0 &#8211; No bus error occurred.
+
+
+1 &#8211; A bus error control is pending.
+
+
+
+
+
+When Written:
+
+
+0 &#8211; No effect.
+
+
+1 &#8211; Bit is cleared.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>OneToClear</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Per channel Bus error status/ Per channel bus error clear</UINotes>
+        <UIToolTip>Per channel Bus error status/ Per channel bus error clear</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHNL_INVALID_CLR</Name>
+        <UID>3e724074d86329aa0ff198e85f60ec2fff478e7f</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Per Channel Invalid Descriptor Status/Clear</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register is used to read and clear the per channel DMA invalid descriptor status. The per channel  invalid descriptor status is set if the controller reads an invalid descriptor (cycle control is 3'b000). If it reads invalid cycle control for a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. $[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+
+0: No invalid cycle control occurred.$[/p$]$[p$]
+
+1: An invalid cycle control is pending.$[/p$]$[p$]
+
+
+
+When Written:$[/p$]$[p$]
+
+0 &#8211; No effect.$[/p$]$[p$]
+
+1 &#8211; Bit is cleared.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register is used to read and clear the per channel DMA invalid descriptor status. The per channel  invalid descriptor status is set if the controller reads an invalid descriptor (whose cycle control is 3'b000). If it reads invalid cycle control for a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. 
+
+
+
+When Read:
+
+0 &#8211; No invalid cycle control occurred.
+
+1 &#8211; An invalid cycle control is pending.
+
+
+
+When Written:
+
+0 &#8211; No effect.
+
+1 &#8211; Bit is cleared.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>OneToClear</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Per channel Invalid Descriptor status/ Per channel Invalid descriptor status clear</UINotes>
+        <UIToolTip>Per channel Invalid Descriptor status/ Per channel Invalid descriptor status clear</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHPRIALTCLR</Name>
+        <UID>1fc0087850ac4b283c51c78d20b4b5d5c7f080d3</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Select Primary Data Structure</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>Set the appropriate bit to select the primary data structure for the corresponding DMA channel.$[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAALTSET} register to select the alternate data structure.$[/p$]$[p$]
+${.:.:.}[C] = 1, Selects the primary data structure for channel C.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>Set the appropriate bit to select the primary data structure for the corresponding DMA channel.
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMAALTSET register
+Bit [C] = 0, DMA channel C is using the primary data structure.
+Bit [C] = 1, DMA channel C is using the alternate data structure.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAALTSET register to select the alternate data structure.
+Bit [C] = 1, Selects the primary data structure for channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Select primary data struct</UINotes>
+        <UIToolTip>Select primary data struct</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHPRIALTSET</Name>
+        <UID>a123929671588ff06e3db91f4c7861b00de269cb</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Control Structure Status / Select Alternate Structure</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>Returns the channel control data structure status, or selects the alternate data structure for the corresponding DMA channel.$[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+${.:.:.}[C] = 0, DMA channel C is using the primary data structure.$[/p$]$[p$]
+${.:.:.}[C] = 1, DMA channel C is using the alternate data structure.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAALTCLR} register to set bit [C] to 0.$[/p$]$[p$]
+${.:.:.}[C] = 1, Selects the alternate data structure for channel C.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>Returns the channel control data structure status, or selects the alternate data structure for the corresponding DMA channel.
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, DMA channel C is using the primary data structure.
+Bit [C] = 1, DMA channel C is using the alternate data structure.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAALTCLR register to set bit [C] to 0.
+Bit [C] = 1, Selects the alternate data structure for channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Control struct status / select alt struct</UINotes>
+        <UIToolTip>Control struct status / select alt struct</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHPRICLR</Name>
+        <UID>cb83016fe11eeb6db94ad3dbf498ce8abe972e93</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Configure Channel for Default Priority Level</Description>
+        <DocSets>
+          <Set1>
+            <Documentation>The ${.:DMAPRICLR} write-only register enables the user to configure a DMA channel to use the default priority level. Each bit of the register represents the corresponding channel number in the DMA controller.  Set the appropriate bit to select the default priority level for the specified DMA channel.$[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAPRISET} register to set channel C to the high priority level.$[/p$]$[p$]
+${.:.:.}[C] = 1, Channel C uses the default priority level.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>The DMAPRICLR write-only register enables the user to configure a DMA channel to use the default priority level. Each bit of the register represents the corresponding channel number in the DMA controller.  Set the appropriate bit to select the default priority level for the specified DMA channel.
+
+Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Reflects value in DMAPRISET register
+Bit [C] = 0, DMA channel C is using the default priority level.
+Bit [C] = 1, DMA channel C is using a high priority level.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAPRISET register to set channel C to the high priority level.
+Bit [C] = 1, Channel C uses the default priority level.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Configure channel for default priority level</UINotes>
+        <UIToolTip>Configure channel for default priority level</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHPRISET</Name>
+        <UID>3c1cf52d8095a486b4980a02f6641fb28bf74f3f</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Configure Channel for High Priority</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register enables the user to you to configure a DMA channel to use the high priority level. Reading the register returns the status of the channel priority mask. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Returns the channel priority mask status, or sets the channel priority to high. $[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0, bit M-1 corresponds to DMA channel M-1.$[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+${.:.:.}[C] = 0, DMA channel C is using the default priority level.$[/p$]$[p$]
+${.:.:.}[C] = 1, DMA channel C is using a high priority level.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMAPRICLR} register to set channel C to the default priority level.$[/p$]$[p$]
+${.:.:.}[C] = 1, Channel C uses the high priority level.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register enables the user to you to configure a DMA channel to use the high priority level. Reading the register returns the status of the channel priority mask. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Returns the channel priority mask status, or sets the channel priority to high. 
+
+Bit 0 corresponds to DMA channel 0, bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, DMA channel C is using the default priority level.
+Bit [C] = 1, DMA channel C is using a high priority level.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAPRICLR register to set channel C to the default priority level.
+Bit [C] = 1, Channel C uses the high priority level.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Configure channel for high priority</UINotes>
+        <UIToolTip>Configure channel for high priority</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHREQMCLR</Name>
+        <UID>62d9745b016b56810597cda2b15119e8ba82075e</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Clear Request Mask Set Bits</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register enables DMA requests from peripherals by clearing the mask set in ${.:DMARMSKSET} register. Each bit of the register represents the corresponding channel number in the DMA controller.
+
+Set the appropriate bit to clear the corresponding ${.:DMARMSKSET:CHREQMSET} bit. $[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel  M-1$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMARMSKSET} register to disable DMA requests.$[/p$]$[p$]
+${.:.:.}[C] = 1, Enables peripheral associated with channel C to generate DMA requests.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register enables DMA requests from peripherals by clearing the mask set in DMARMSKSET register. Each bit of the register represents the corresponding channel number in the DMA controller.
+
+Set the appropriate bit to clear the corresponding REQ_MASK_SET bit in DMARMSKSET register. 
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel  M-1
+
+When Read:
+Reflects value in DMARMSKSET register
+Bit [C] = 0, Requests are enabled for channel C.
+Bit [C] = 1, Requests are disabled for channel C.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMARMSKSET register to disable DMA requests.
+Bit [C] = 1, Enables peripheral associated with channel C to generate DMA requests.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Clear REQ_MASK_SET bits in DMARMSKSET</UINotes>
+        <UIToolTip>Clear REQ_MASK_SET bits in DMARMSKSET</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHREQMSET</Name>
+        <UID>f54c0b5e6e049b34034b190134e81fb2b926af3f</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Mask Requests from DMA Channels</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register disables DMA requests from peripherals. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Set the appropriate bit to mask the request from the corresponding DMA channel. $[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+${.:.:.}[C] = 0, Requests are enabled for channel C.$[/p$]$[p$]
+${.:.:.}[C] = 1, Requests are disabled for channel C.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, No effect. Use the ${.:DMARMSKSET} register to enable DMA requests.$[/p$]$[p$]
+${.:.:.}[C] = 1, Disables peripheral associated with channel C from generating DMA requests.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register disables DMA requests from peripherals. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Set the appropriate bit to mask the request from the corresponding DMA channel. 
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, Requests are enabled for channel C.
+Bit [C] = 1, Requests are disabled for channel C.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMARMSKCLR register to enable DMA requests.
+Bit [C] = 1, Disables peripheral associated with channel C from generating DMA requests.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Mask requests from DMA channels</UINotes>
+        <UIToolTip>Mask requests from DMA channels</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHSRCADRDECSET</Name>
+        <UID>65d25750b8f2421cd8dba7c73b47496c3123b9d4</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Source Address Decrement Status</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>The ${.:DMASRCADSSET} register is used to configure the source address of a DMA channel to decrement the address instead of incrementing the address after each access. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1.$[/p$]$[p$]
+
+
+When Read:$[/p$]$[p$]
+
+
+${.:.:.}[C] = 0, Channel C Source Address decrement is disabled.$[/p$]$[p$]
+
+
+${.:.:.}[C] = 1, Channel C Source Address decrement is enabled.$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+
+
+${.:.:.}[C] = 0, No effect. Use the ${.:DMASRCADCLR} register to disable source address decrement on channel C.$[/p$]$[p$]
+
+
+${.:.:.}[C] = 1, Enables source address decrement on channel C.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>The register is used to configure the source address of a DMA channel to decrement the address instead of incrementing the address after each access. Each bit of the register represents the corresponding channel number in the DMA controller.  Bit 0 corresponds to DMA channel and bit M-1 corresponds to DMA channel M-1
+
+When Read:
+Bit [C] = 0, Channel C Source Address decrement is disabled.
+Bit [C] = 1, Channel C Source Address decrement is enabled.
+
+When Written:
+Bit [C] = 0, No effect. Use the DMAADCLR register to disable source address decrement on channel C
+Bit [C] = 1, Enables source address decrement on channel C.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Source Address decrement status / configure Source address decrement</UINotes>
+        <UIToolTip>Source Address decrement status / configure Source address decrement</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CHSWREQ</Name>
+        <UID>137dcff555410539ca18a208af9529cdc01618b0</UID>
+        <Access>W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Generate Software Request</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>Set the appropriate bit to generate a software DMA request on the corresponding DMA channel. $[/p$]$[p$]
+
+Bit 0 corresponds to DMA channel 0$[/p$]$[p$]
+&#8230;$[/p$]$[p$]
+Bit M-1 corresponds to DMA channel M-1$[/p$]$[p$]
+
+When Written:$[/p$]$[p$]
+${.:.:.}[C] = 0, Does not create a DMA request for channel C.$[/p$]$[p$]
+${.:.:.}[C] = 1, Generates a DMA request for channel C.$[/p$]$[p$]
+
+These bits are automatically cleared by the hardware after the corresponding software request completes.</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>Set the appropriate bit to generate a software DMA request on the corresponding DMA channel. 
+
+Bit 0 corresponds to DMA channel 0
+&#8230;
+Bit M-1 corresponds to DMA channel M-1
+
+When Written:
+Bit [C] = 0, Does not create a DMA request for channel C.
+Bit [C] = 1, Generates a DMA request for channel C.
+
+These bits are automatically cleared by the hardware after the corresponding software request completes.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Generate software request</UINotes>
+        <UIToolTip>Generate software request</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>= (NUM_CHANNELS)</Width>
+      </BitField>
+      <BitField>
+        <Name>CTRLBASEPTR</Name>
+        <UID>e0e7f655989cd79e6c8eb35aae763b9255f77f80</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Pointer to the Base Address of the Primary Data Structure</Description>
+        <DocSets>
+          <Set1>
+            <Name>ADDR</Name>
+          </Set1>
+        </DocSets>
+        <Documentation>5 + log(2) M LSBs are reserved and must be written 0. M is number of channels.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Pointer to the base address of the primary data structure</UINotes>
+        <UIToolTip>Pointer to the base address of the primary data structure</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>32</Width>
+      </BitField>
+      <BitField>
+        <Name>DMAREVID</Name>
+        <UID>a8ff77aa6419217edad69d67afd78ab77420cca2</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h2</DefaultValue>
+        <Description>DMA Controller Revision ID</Description>
+        <DocSets>
+          <Set1>
+            <Name>VALUE</Name>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>DMA Controller revision ID</UINotes>
+        <UIToolTip>DMA Controller revision ID</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>8</Width>
+      </BitField>
+      <BitField>
+        <Name>EN_INT_CACHE_PSG</Name>
+        <UID>69cf33a9b6adca73168814a517594096e1c8f746</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h1</DefaultValue>
+        <Description>Enable Internal Descriptor Cache during PSG mode</Description>
+        <DocSets>
+          <Set1>
+            <Name>EN_INT_CACHE_PSG</Name>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>Enumeration</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+      <BitField>
+        <Name>ERRCLR</Name>
+        <UID>f9fca36b862055fcc26a4d0c30a696537125fb64</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Bus Error Status</Description>
+        <DocSets>
+          <Set1>
+            <Name>CHAN</Name>
+            <Documentation>This register is used to read and clear the DMA bus error status. The error status is set if the controller encountered a bus error while performing a transfer. If a bus error occurs or invalid cycle control is read on a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. $[/p$]$[p$]
+
+When Read:$[/p$]$[p$]
+
+0: No bus_error/invalid cycle control occurred.$[/p$]$[p$]
+
+1: A bus_error/invalid cycle control is pending.$[/p$]$[p$]
+
+
+When Written:$[/p$]$[p$]
+
+
+0: No effect.$[/p$]$[p$]
+
+
+1: Bit is cleared.$[/p$]$[p$]</Documentation>
+          </Set1>
+        </DocSets>
+        <Documentation>This register is used to read and clear the DMA bus error status. The error status is set if the controller encountered a bus error while performing a transfer or. If a bus error occurs or invalid cycle control is read on a channel, that channel is automatically disabled by the controller. The other channels are unaffected. Write one to clear bits. 
+
+
+
+
+
+
+
+When Read:
+
+
+
+When Read:
+
+
+0 &#8211; No bus_error/invalid cycle control occurred.
+
+
+1 &#8211; A bus_error/invalid cycle control is pending.
+
+
+
+
+
+When Written:
+
+
+0 &#8211; No effect.
+
+
+1 &#8211; Bit is cleared.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>OneToClear</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Bus error status</UINotes>
+        <UIToolTip>Bus error status</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+      </BitField>
+      <BitField>
+        <Name>FLAVOR_ID</Name>
+        <UID>34c9b72e7e29a81bae948aeb9df3377cecae8496</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>A Representation of Flavor or Source of the IP</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>4</Width>
+      </BitField>
+      <BitField>
+        <Name>HPROT</Name>
+        <UID>02dc1f6cb02eea045bd897c80947e8660a4d6876</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Controls HPROT Signal</Description>
+        <DocSets>
+          <Set1>
+            <Name>HPROT</Name>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>Enumeration</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>3</Width>
+      </BitField>
+      <BitField>
+        <Name>IP_ID</Name>
+        <UID>2f76a0ac1aa2d2dd176f71ac6acec684a70a45d1</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>98</DefaultValue>
+        <Description>A Unique Identification Value per IP</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>10</Width>
+      </BitField>
+      <BitField>
+        <Name>MAJOR_REV</Name>
+        <UID>82736d8c11465eabd21afdf97b19a830436018c7</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>2</DefaultValue>
+        <Description>Revision Register to Indicate Major Changes in IP</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>8</Width>
+      </BitField>
+      <BitField>
+        <Name>MENABLE</Name>
+        <UID>77d1251500fc759af2c5f042d06265a4564dc935</UID>
+        <Access>R/W</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Controller Enable</Description>
+        <DocSets>
+          <Set1>
+            <Name>MEN</Name>
+            <Description>Controller Enable</Description>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>False</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Controller enable</UINotes>
+        <UIToolTip>Controller enable</UIToolTip>
+        <UIUIType>Enumeration</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+        <EnumElements>
+          <EnumElement>
+            <Name>MASTER_DISABLE</Name>
+            <UID>a726d73ef01fb9091666f0c348c1f36d8a06b26b</UID>
+            <Description>Disable Controller</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>MASTER_ENABLE</Name>
+            <UID>ad4e647f2364689cdb97872ba6ae7f057a9f52fd</UID>
+            <Description>Enable Controller</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+        </EnumElements>
+      </BitField>
+      <BitField>
+        <Name>MENABLE</Name>
+        <UID>8ad58df01ab2e2889000527a447411172d8bb63d</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'h0</DefaultValue>
+        <Description>Enable Status of the Controller</Description>
+        <DocSets>
+          <Set1>
+            <Name>MEN</Name>
+          </Set1>
+        </DocSets>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Enable status of the controller</UINotes>
+        <UIToolTip>Enable status of the controller</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>1</Width>
+        <EnumElements>
+          <EnumElement>
+            <Name>MASTER_DISABLE</Name>
+            <UID>b45ba8117ee23205fa2167da5f76bbc122538f6d</UID>
+            <Description>Controller is Disabled</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>MASTER_ENABLE</Name>
+            <UID>1c734d1389554a8dc6e7a274bd66cf831eb976d5</UID>
+            <Description>Controller is Enabled</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+        </EnumElements>
+      </BitField>
+      <BitField>
+        <Name>MINOR_REV</Name>
+        <UID>759304386fe69776d6314b1fc98d1a2f7edc3dd4</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>3</DefaultValue>
+        <Description>Revision Register Indicating Minor Changes to IP</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>4</Width>
+      </BitField>
+      <BitField>
+        <Name>PROG_REV_IF</Name>
+        <UID>9bdc7c3af634ead28f88e1594b9a42e7fb1c0277</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>Programming Model Interface Register</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>16</Width>
+      </BitField>
+      <BitField>
+        <Name>SCHEMA_ID</Name>
+        <UID>deebbeb535b45f5d8b5d7a4b5bd5cc04461e032e</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>Provision for Future Enhancements.</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>2</Width>
+      </BitField>
+      <BitField>
+        <Name>STATE</Name>
+        <UID>d39989d020954fcc99f2e9533fd0a5751739d23b</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>'b0</DefaultValue>
+        <Description>Current State of DMA Controller</Description>
+        <Documentation>Provides insight into the operation performed by the DMA at the time this register is read.</Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>slave_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes>Current state of DMA controller</UINotes>
+        <UIToolTip>Current state of DMA controller</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>4</Width>
+        <EnumElements>
+          <EnumElement>
+            <Name>IDLE</Name>
+            <UID>6e35a2436a72995d280e1d3b0b0a9def10e19979</UID>
+            <Description>Idle</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0000</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_CFG</Name>
+            <UID>a09c7368a88c4facb6d11990bff10e5315be296e</UID>
+            <Description>Reading Channel Controller Data</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0001</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_SRC_END_PTR</Name>
+            <UID>a107b093b6cf11d1c4fb6f3144329717f2823bf6</UID>
+            <Description>Reading Source Data End Pointer</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0010</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_DST_END_PTR</Name>
+            <UID>04c9b9e7ca6d44e625e32e5e96acfacb3032e2d9</UID>
+            <Description>Reading Destination End Pointer</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0011</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_SRC_DATA</Name>
+            <UID>51549774b99955efc50caff3047e8aaaad4f16d1</UID>
+            <Description>Reading Source Data</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0100</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_DST_DATA</Name>
+            <UID>6faaba7ef29629947a2e7412dcc05020854f0e54</UID>
+            <Description>Writing Destination Data</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0101</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>WAIT_DMAREQ_CLR</Name>
+            <UID>14bccba58b9465c8db6ae4c26a7295c774e379e4</UID>
+            <Description>Waiting for DMA Request to Clear</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0110</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>WRITE_CFG</Name>
+            <UID>7c3bd4e726c3542c25ea1e9a17fabe95372e71ac</UID>
+            <Description>Writing Channel Controller Data</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>0111</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>STALLED</Name>
+            <UID>7efec7867599916d9a65f1cc22cf1f2c896e32ca</UID>
+            <Description>Stalled</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1011</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>DONE</Name>
+            <UID>b2e0f249778168356bb5e2777b5aa706173217b8</UID>
+            <Description>Done</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1001</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>PSG_TRANSITION</Name>
+            <UID>e6892a8ad305c8c9db9f53dc928daa94ee6f331c</UID>
+            <Description>Peripheral Scatter-gather Transition</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1010</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>READ_CONTROL_INTERNAL</Name>
+            <UID>b0931473e0d8699940af8f5958adda527305f6f4</UID>
+            <Description>Read Internal Buffer Control</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>'b1000</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+          <EnumElement>
+            <Name>UNDEFINED</Name>
+            <UID>3c746e189154028c9cbe2c549b17d2856cd80fb9</UID>
+            <Description>Undefined</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Notes></Notes>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIValue></UIUIValue>
+            <User></User>
+            <Value>1100 - 1111</Value>
+            <Visibility>Public</Visibility>
+          </EnumElement>
+        </EnumElements>
+      </BitField>
+      <BitField>
+        <Name>TRIVIAL_REV</Name>
+        <UID>e7fccede4f40905f003157f2fe4df1f829156883</UID>
+        <Access>R</Access>
+        <Bundle></Bundle>
+        <DefaultValue>0</DefaultValue>
+        <Description>Revision Register Indicating Trivial Changes to IP</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <HSType>Both</HSType>
+        <ReadSideEffect>None</ReadSideEffect>
+        <WriteSideEffect>None</WriteSideEffect>
+        <DefaultType>HardWired</DefaultType>
+        <ClockSignal>clk</ClockSignal>
+        <ResetType>ASync</ResetType>
+        <ResetSignal>=__AUTO__</ResetSignal>
+        <Visibility>Public</Visibility>
+        <ReadEnableSignal></ReadEnableSignal>
+        <WriteEnableSignal></WriteEnableSignal>
+        <ReadStrobe>None</ReadStrobe>
+        <WriteStrobe>None</WriteStrobe>
+        <LatchSignal></LatchSignal>
+        <InputSideEffect>None</InputSideEffect>
+        <OutputSideEffect>None</OutputSideEffect>
+        <Volatile>True</Volatile>
+        <RequiresCustomRTL>False</RequiresCustomRTL>
+        <Testable>True</Testable>
+        <ForcedValue></ForcedValue>
+        <ForcedValueSignal></ForcedValueSignal>
+        <LinkSet></LinkSet>
+        <MSEnabled>False</MSEnabled>
+        <MSTransferSignal>transfer</MSTransferSignal>
+        <MSReadSelectSignal>read_select</MSReadSelectSignal>
+        <MSSubClockSignal>sub_clk</MSSubClockSignal>
+        <MSSubLogic>Included</MSSubLogic>
+        <Notes></Notes>
+        <PageMask></PageMask>
+        <PhaseMask></PhaseMask>
+        <UINotes></UINotes>
+        <UIToolTip>=__AUTO__</UIToolTip>
+        <UIUIType>=__AUTO__</UIUIType>
+        <UIWidget>=__AUTO__</UIWidget>
+        <UINumericBase>Decimal</UINumericBase>
+        <UIDataFormat>Unsigned</UIDataFormat>
+        <UIPrefix>None</UIPrefix>
+        <UIUnits>None</UIUnits>
+        <UIScale>1</UIScale>
+        <UIOffset>0</UIOffset>
+        <UIMinValue>=__AUTO__</UIMinValue>
+        <UIMaxValue>=__AUTO__</UIMaxValue>
+        <UIIncrement>1</UIIncrement>
+        <UIPolarity>ActiveHigh</UIPolarity>
+        <User></User>
+        <Width>4</Width>
+      </BitField>
+    </BitFields>
+    <RegisterMaps>
+      <UID>4f5977f2d219d5886afe48753556eb5b493d240b</UID>
+      <RegisterMap>
+        <Name>RegMap1</Name>
+        <UID>413726b8f639be038f70a398615645be5594972c</UID>
+        <Address>'h0000</Address>
+        <Description>DMA</Description>
+        <Documentation></Documentation>
+        <Exists>True</Exists>
+        <Notes></Notes>
+        <User></User>
+        <Registers>
+          <Register>
+            <Name>DMASTA</Name>
+            <UID>319eea795b82d61470c5fc3740249b64b7429c11</UID>
+            <Address>'h0</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Status</Description>
+            <DocSets>
+              <Set1>
+                <Name>STAT</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>8ad58df01ab2e2889000527a447411172d8bb63d</BF-UID>	<!-- Name: MENABLE -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>1</SliceWidth>
+                <UID>ce1d826c542d293f6440288ae0b51a2f4e2002b7</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>d39989d020954fcc99f2e9533fd0a5751739d23b</BF-UID>	<!-- Name: STATE -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>4</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>4</SliceWidth>
+                <UID>0115b7e9b68c8f4f02c3b4ea76d932dd2c2ab10d</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>44a7859eb09061f43aef79db95381c2786a6f220</BF-UID>	<!-- Name: CHNLSM1 -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>16</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>8</SliceWidth>
+                <UID>d8cb18cbbfe9b69d46df9427cc39556a75b4c7d1</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMACFG</Name>
+            <UID>965289d5d5c48bac86c0ab92c0eb5997ad6efb45</UID>
+            <Address>'h4</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Configuration</Description>
+            <DocSets>
+              <Set1>
+                <Name>CFG</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>77d1251500fc759af2c5f042d06265a4564dc935</BF-UID>	<!-- Name: MENABLE -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>1</SliceWidth>
+                <UID>27f114d9c4c921c96915ca43a18804801c996211</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>69cf33a9b6adca73168814a517594096e1c8f746</BF-UID>	<!-- Name: EN_INT_CACHE_PSG -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>1</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>1</SliceWidth>
+                <UID>f29148ee7d439902a4b3acf46ce9876a97a6f234</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>02dc1f6cb02eea045bd897c80947e8660a4d6876</BF-UID>	<!-- Name: HPROT -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>5</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>3</SliceWidth>
+                <UID>4fe8bfdf15f7ece3c164c97ccc28880e47f1aabc</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAPDBPTR</Name>
+            <UID>2151d23642e59ebed6f407bf4e12afcbb0d1f359</UID>
+            <Address>'h8</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Primary Control Data Base Pointer</Description>
+            <DocSets>
+              <Set1>
+                <Name>PDBPTR</Name>
+                <Description>DMA Channel Primary Control Database Pointer</Description>
+                <Documentation>The ${.:.} register must be programmed to point to the primary channel control base pointer in the system memory. The amount of system memory that must be assigned to the DMA controller depends on the number of DMA channels used and whether the alternate channel control data structure is used. This register cannot be read when the DMA controller is in the reset state.</Documentation>
+              </Set1>
+            </DocSets>
+            <Documentation>The DMAPDBPTR register must be programmed to point to the primary channel control base pointer in the system memory. The amount of system memory that must be assigned to the DMA controller depends on the number of DMA channels used and whether the alternate channel control data structure is used. This register cannot be read when the DMA controller is in the reset state.</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>e0e7f655989cd79e6c8eb35aae763b9255f77f80</BF-UID>	<!-- Name: CTRLBASEPTR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>32</SliceWidth>
+                <UID>98d0ce47d75f2117fafbf208b2fbde97929b3686</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAADBPTR</Name>
+            <UID>5410d9c4a8c70c3489617a793b9703d4e461a4ce</UID>
+            <Address>'hc</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Alternate Control Data Base Pointer</Description>
+            <DocSets>
+              <Set1>
+                <Name>ADBPTR</Name>
+                <Description>DMA Channel Alternate Control Database Pointer</Description>
+                <Documentation>The ${.:.} read-only register returns the base address of the alternate channel control data structure. This register removes the necessity for application software to calculate the base address of the alternate data structure. This register cannot be read when the DMA controller is in the reset state.</Documentation>
+              </Set1>
+            </DocSets>
+            <Documentation>The DMAADBPTR read-only register returns the base address of the alternate channel control data structure. This register removes the necessity for application software to calculate the base address of the alternate data structure. This register cannot be read when the DMA controller is in the reset state.</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>fdf2e7fd27fb0383bd6a2a79914e88950d29afe8</BF-UID>	<!-- Name: ALTCBPTR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>32</SliceWidth>
+                <UID>b163f662792718525a36f8be5fc6c1dd0283ed89</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAWAITONREQSTAT</Name>
+            <UID>0d73ce3378e160c96a1e874f0291f329bff1f921</UID>
+            <Address>'h10</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Wait on Request Status</Description>
+            <DocSets>
+              <Set1>
+                <Name>DMAWTONREQSTAT</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>=(Single_req_enable)</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+          </Register>
+          <Register>
+            <Name>DMASWREQ</Name>
+            <UID>30eeb1c9dca57be00550030e6815fd6adca3f9d2</UID>
+            <Address>'h14</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Software Request</Description>
+            <DocSets>
+              <Set1>
+                <Name>SWREQ</Name>
+                <Description>DMA Channel Software Request</Description>
+                <Documentation>The ${.:.} register enables the generation of software DMA request. Each bit of the register represents the corresponding channel number in the DMA controller.  M is the number of DMA channels</Documentation>
+              </Set1>
+            </DocSets>
+            <Documentation>The DMASWREQ register enables the generation of software DMA request. Each bit of the register represents the corresponding channel number in the DMA controller.  M is the number of DMA channels</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>137dcff555410539ca18a208af9529cdc01618b0</BF-UID>	<!-- Name: CHSWREQ -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>=(NUM_CHANNELS)</SliceWidth>
+                <UID>7f57833f9eb06bc1eeaf7f9b2c0b573020196a16</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAUSEBURSTSET</Name>
+            <UID>a956cd4eab2b1318544cdf6bab580103be764805</UID>
+            <Address>'h18</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>Disable Single Request Signal to Generate DMA Requests</Description>
+            <Documentation></Documentation>
+            <Exists>=(Single_req_enable)</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+          </Register>
+          <Register>
+            <Name>DMAUSEBURSTCLR</Name>
+            <UID>c7e3225e7216a2fe7b281a57b1825f860ec7c72e</UID>
+            <Address>'h1C</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>Enable Single Request Signal to Generate DMA Requests</Description>
+            <Documentation></Documentation>
+            <Exists>=(Single_req_enable)</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+          </Register>
+          <Register>
+            <Name>DMARMSKSET</Name>
+            <UID>230d4ed50c622b83cc61f0ae7bccc18520b46e94</UID>
+            <Address>'h20</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Request Mask Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>RMSK_SET</Name>
+                <Description>DMA Channel Request Mask Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>f54c0b5e6e049b34034b190134e81fb2b926af3f</BF-UID>	<!-- Name: CHREQMSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>=(NUM_CHANNELS)</SliceWidth>
+                <UID>1eda9a18ce9502d6e80414ba7c28d4f2ac757e0c</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMARMSKCLR</Name>
+            <UID>d3c3e4c89e5478437af687cfa816a69e0984f058</UID>
+            <Address>'h24</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Request Mask Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>RMSK_CLR</Name>
+                <Description>DMA Channel Request Mask Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>62d9745b016b56810597cda2b15119e8ba82075e</BF-UID>	<!-- Name: CHREQMCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>68167f8443621f11efdfbb32b12575591982b390</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAENSET</Name>
+            <UID>28717afd51053866bf0dfb7ed8e5d5196f2432ca</UID>
+            <Address>'h28</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Enable Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>EN_SET</Name>
+                <Description>DMA Channel Enable Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>8042c0441ff2088f4eac6b9990098635da1e5e01</BF-UID>	<!-- Name: CHENSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>aa397d084626534ff4fdf2af0ab5aa6f6726465d</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAENCLR</Name>
+            <UID>f97fddd3b6265d139dd9d1f2d5a2cf55d661ee5c</UID>
+            <Address>'h2c</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Enable Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>EN_CLR</Name>
+                <Description>DMA Channel Enable Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>bdc80f613e1df66dbeb76f98fc6591fbf865429f</BF-UID>	<!-- Name: CHENCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>1996481d6427041a332da72e3207e4767495ff5a</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAALTSET</Name>
+            <UID>044ad027a297058711759f54aa51907674bc64ff</UID>
+            <Address>'h30</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Primary-alternate Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>ALT_SET</Name>
+                <Description>DMA Channel Primary Alternate Set</Description>
+                <Documentation>The ${.:.} register enables the user to configure the appropriate DMA channel to use the alternate control data structure. Reading the register returns the status of which data structure is in use for the corresponding DMA channel. Each bit of the register represents the corresponding channel number in the DMA controller. $[/p$]$[p$] 
+
+Note: The DMA controller sets/clears these bits automatically as necessary for ping-pong, memory scatter-gather and peripheral scatter-gather transfers.</Documentation>
+              </Set1>
+            </DocSets>
+            <Documentation>The DMAALTSET register enables the user to configure the appropriate DMA channel to use the alternate control data structure. Reading the register returns the status of which data structure is in use for the corresponding DMA channel. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Note: The DMA controller sets/clears these bits automatically as necessary for ping-pong, memory scatter-gather and peripheral scatter-gather transfers.</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>a123929671588ff06e3db91f4c7861b00de269cb</BF-UID>	<!-- Name: CHPRIALTSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>5726dd36c1a62bc01b875d7c475a4b0882bcdb05</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAALTCLR</Name>
+            <UID>98468f3d852745423572d41a8536d0a3fb5334e4</UID>
+            <Address>'h34</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Primary-alternate Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>ALT_CLR</Name>
+                <Description>DMA Channel Primary Alternate Clear</Description>
+                <Documentation>The ${.:.} write-only register enables the user to configure the appropriate DMA channel to use the primary control data structure. Each bit of the register represents the corresponding channel number in the DMA controller.  $[/p$]$[p$]
+
+Note: The DMA controller sets/clears these bits automatically as necessary for ping-pong, memory scatter-gather and peripheral scatter-gather transfers.</Documentation>
+              </Set1>
+            </DocSets>
+            <Documentation>The DMAALTCLR write-only register enables the user to configure the appropriate DMA channel to use the primary control data structure. Each bit of the register represents the corresponding channel number in the DMA controller.  
+
+Note: The DMA controller sets/clears these bits automatically as necessary for ping-pong, memory scatter-gather and peripheral scatter-gather transfers.</Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>1fc0087850ac4b283c51c78d20b4b5d5c7f080d3</BF-UID>	<!-- Name: CHPRIALTCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>4c45a7427f02f7913f00687b84038ec23e134749</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAPRISET</Name>
+            <UID>cf68ef3c0b1d2aa0e7cde87b9fc7e3b6bcd0d275</UID>
+            <Address>'h38</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Priority Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>PRI_SET</Name>
+                <Description>DMA Channel Priority Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>3c1cf52d8095a486b4980a02f6641fb28bf74f3f</BF-UID>	<!-- Name: CHPRISET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>8b36a26cb5d3e6f6c0d85154762dcae696314279</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAPRICLR</Name>
+            <UID>421e60cdcff89ffaffa30c9fb8133888fe8d6035</UID>
+            <Address>'h3c</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Priority Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>PRI_CLR</Name>
+                <Description>DMA Channel Priority Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>cb83016fe11eeb6db94ad3dbf498ce8abe972e93</BF-UID>	<!-- Name: CHPRICLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>4ac27453be2188a6e2e4fe5aaaa19ca4b6d38020</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAERRCHNLCLR</Name>
+            <UID>6f35a82c2b6c12e382d4f252ea39c0f750dcb846</UID>
+            <Address>'h48</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA per Channel Error Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>ERRCHNL_CLR</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>b727064d3024df152458d704063531711cdf25fe</BF-UID>	<!-- Name: CHNL_ERR_CLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>1e67fbcf0a5c42eb54df978c9f93a59c6311a033</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAERRCLR</Name>
+            <UID>d87cc61523bc7730bef13ac889aa8de19a472ee6</UID>
+            <Address>'h4c</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Bus Error Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>ERR_CLR</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>f9fca36b862055fcc26a4d0c30a696537125fb64</BF-UID>	<!-- Name: ERRCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>1</SliceWidth>
+                <UID>06686455b7203ed8bd785da94e61eefecd3ad0ea</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAINVALIDDESCCLR</Name>
+            <UID>6d77d0667822bf78d3cb65a046b252a9497be276</UID>
+            <Address>'h50</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA per Channel Invalid Descriptor Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>INVALIDDESC_CLR</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>3e724074d86329aa0ff198e85f60ec2fff478e7f</BF-UID>	<!-- Name: CHNL_INVALID_CLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>ae0a3bad154889db9b963bb5df216f2430392588</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMABSSET</Name>
+            <UID>21f5806fce6caf0dd5af6bbe918830b965cd3fee</UID>
+            <Address>'h800</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Bytes Swap Enable Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>BS_SET</Name>
+                <Description>DMA Channel Bytes Swap Enable Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>11fc6bde805f747fcacc4482546187db441b1b85</BF-UID>	<!-- Name: CHBSWAPSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>08521eededf3628bc98d11a8b91f7d03a8b5014d</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMABSCLR</Name>
+            <UID>d775ef062b35c25414f4423002d4376b92ced046</UID>
+            <Address>'h804</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Bytes Swap Enable Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>BS_CLR</Name>
+                <Description>DMA Channel Bytes Swap Enable Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>fa5e3e285e9100364d9ec67b53dd253443a96e7f</BF-UID>	<!-- Name: CHBSWAPCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>356b09cf6f5e9ad2a40a2146810c44324f1a4c75</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMASRCADSSET</Name>
+            <UID>e41fd4b8934319b9d82b1e56cfd9618a116b4512</UID>
+            <Address>'h810</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Source Address Decrement Enable Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>SRCADDR_SET</Name>
+                <Description>DMA Channel Source Address Decrement Enable Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>65d25750b8f2421cd8dba7c73b47496c3123b9d4</BF-UID>	<!-- Name: CHSRCADRDECSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>3f011f844b72b429e759cd25adfec7b10ec08054</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMASRCADCLR</Name>
+            <UID>336302ef660377295f3b9dab7e0de122dc360241</UID>
+            <Address>'h814</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Source Address Decrement Enable Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>SRCADDR_CLR</Name>
+                <Description>DMA Channel Source Address Decrement Enable Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>91f3e426f7e25e645083ec65f3e3e80469faf5cb</BF-UID>	<!-- Name: CHADRDECCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>c6558d0594df3b64bec9da3320d8924b3de4eece</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMADSTADSET</Name>
+            <UID>ef95e5d3933eb9b5a81bb725f4d31e1de2831e9f</UID>
+            <Address>'h818</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Destination Address Decrement Enable Set</Description>
+            <DocSets>
+              <Set1>
+                <Name>DSTADDR_SET</Name>
+                <Description>DMA Channel Destination Address Decrement Enable Set</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>d0d462d02e608e855e701d3d575a4a9456934512</BF-UID>	<!-- Name: CHDSTADRDECSET -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>3605e9633170ab4518ad2507783dbccfb14ed071</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMADSTADCLR</Name>
+            <UID>a94e797f2cd64f1174f7046bbdc16d4e06327786</UID>
+            <Address>'h81c</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Channel Destination Address Decrement Enable Clear</Description>
+            <DocSets>
+              <Set1>
+                <Name>DSTADDR_CLR</Name>
+                <Description>DMA Channel Destination Address Decrement Enable Clear</Description>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>d0dcccab3df33493ae018fbfd81bd4a847db4e00</BF-UID>	<!-- Name: CHADRDECCLR -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>= (NUM_CHANNELS)</SliceWidth>
+                <UID>28f03c3341f200d8b3fb3ec5dbbb3201d6b3e089</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>DMAREVID</Name>
+            <UID>58a4816b67bba5e111be037d3e344c97c4044bee</UID>
+            <Address>'hfe0</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>DMA Controller Revision ID</Description>
+            <DocSets>
+              <Set1>
+                <Name>REVID</Name>
+              </Set1>
+            </DocSets>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>Boolean</UIUIType>
+            <UIWidget>CheckBox</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>a8ff77aa6419217edad69d67afd78ab77420cca2</BF-UID>	<!-- Name: DMAREVID -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>8</SliceWidth>
+                <UID>d917d555d330176291385d816922744522763e29</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>ID</Name>
+            <UID>832367a2d3af8d9555aa600ca2c09cd99c4982f4</UID>
+            <Address>'hFE4</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>Identification Register</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>34c9b72e7e29a81bae948aeb9df3377cecae8496</BF-UID>	<!-- Name: FLAVOR_ID -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>4</SliceWidth>
+                <UID>f1367bf2c2a8cdaeab4ebb3234359e10170775f5</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>2f76a0ac1aa2d2dd176f71ac6acec684a70a45d1</BF-UID>	<!-- Name: IP_ID -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>4</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>10</SliceWidth>
+                <UID>134ee16fb86de24d11abf52f261a2a5cd93eb64d</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>deebbeb535b45f5d8b5d7a4b5bd5cc04461e032e</BF-UID>	<!-- Name: SCHEMA_ID -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>14</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>2</SliceWidth>
+                <UID>a3c18d214622e0830a4e4776a989377524227989</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>REV</Name>
+            <UID>c907f34daa36cffe406f5943e286ead8229102aa</UID>
+            <Address>'hFE8</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>Revision Register</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>e7fccede4f40905f003157f2fe4df1f829156883</BF-UID>	<!-- Name: TRIVIAL_REV -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>4</SliceWidth>
+                <UID>38ee4023d4290392d58055d2eae5784b533908e3</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>759304386fe69776d6314b1fc98d1a2f7edc3dd4</BF-UID>	<!-- Name: MINOR_REV -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>4</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>4</SliceWidth>
+                <UID>09678338e2c240990ae677e89ba713cafb42c423</UID>
+              </BitFieldRef>
+              <BitFieldRef>
+                <BF-UID>82736d8c11465eabd21afdf97b19a830436018c7</BF-UID>	<!-- Name: MAJOR_REV -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>8</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>8</SliceWidth>
+                <UID>af1d47b82c2f45090c81c1ae82f7c0f58cae3e6c</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+          <Register>
+            <Name>PROG_REV_IF</Name>
+            <UID>14356e95db66203f530813568db4e175881090a1</UID>
+            <Address>'hFEc</Address>
+            <ArrayEnabled>False</ArrayEnabled>
+            <ArrayLetter>n</ArrayLetter>
+            <ArrayFrom>0</ArrayFrom>
+            <ArrayTo>2</ArrayTo>
+            <ArrayBy>1</ArrayBy>
+            <ArrayStride>1</ArrayStride>
+            <CmdFormat>BLOCK</CmdFormat>
+            <Description>Programming Model Interface Register</Description>
+            <Documentation></Documentation>
+            <Exists>True</Exists>
+            <Indirect></Indirect>
+            <IsAccessControlled></IsAccessControlled>
+            <IsPecRequired></IsPecRequired>
+            <IsStatusCmd></IsStatusCmd>
+            <LinkSet></LinkSet>
+            <Notes></Notes>
+            <NumFormat>LINEAR</NumFormat>
+            <UINotes></UINotes>
+            <UIToolTip>=__AUTO__</UIToolTip>
+            <UIUIType>=__AUTO__</UIUIType>
+            <UIWidget>=__AUTO__</UIWidget>
+            <UINumericBase>Hexadecimal</UINumericBase>
+            <User></User>
+            <Width>32</Width>
+            <WriteProtectLevel>Level1</WriteProtectLevel>
+            <BitFieldRefs>
+              <BitFieldRef>
+                <BF-UID>9bdc7c3af634ead28f88e1594b9a42e7fb1c0277</BF-UID>	<!-- Name: PROG_REV_IF -->
+                <BitOffset>0</BitOffset>
+                <RegOffset>0</RegOffset>
+                <SecondaryAddress>0</SecondaryAddress>
+                <SliceWidth>16</SliceWidth>
+                <UID>2afdf5443b227ca60486df83cf4ecbbef3632fc0</UID>
+              </BitFieldRef>
+            </BitFieldRefs>
+          </Register>
+        </Registers>
+      </RegisterMap>
+    </RegisterMaps>
+    <MemoryRegions>
+      <UID>71d0e2b8f2b71c0e19f9652ba3af35024f875fbf</UID>
+    </MemoryRegions>
+  </MemoryMap>
+  <Instances>
+  </Instances>
+  <Interrupts>
+  </Interrupts>
+  <Triggers>
+  </Triggers>
+  <DMAChannels>
+  </DMAChannels>
+  <ChipSignals>
+  </ChipSignals>
+  <Pads>
+  </Pads>
+  <Packages>
+  </Packages>
+  <FunctionalGroups>
+    <UID>416581e7a2f4dfd46efde39fa5d202760f2176ff</UID>
+  </FunctionalGroups>
+  <Suppressions>
+    <Suppression>
+      <UID>82da668cc45d8b82d3c15fce2ce4b58288b7f755</UID>
+      <Scope>AllOfTypeAndProperty</Scope>
+      <ErrorNumber>1035</ErrorNumber>
+      <Property>Name</Property>
+      <Notes></Notes>
+      <TargetType>BitField</TargetType>
+    </Suppression>
+    <Suppression>
+      <UID>84cba4f6803504fff14b1c083f5a2fabd3181c13</UID>
+      <Scope>AllOfTypeAndProperty</Scope>
+      <ErrorNumber>1080</ErrorNumber>
+      <Property>Widget</Property>
+      <Notes></Notes>
+      <TargetType>BitField</TargetType>
+    </Suppression>
+    <Suppression>
+      <UID>8ff9c7eecc22fd00b635bac09797f434e52c9d50</UID>
+      <Scope>AllOfTypeAndProperty</Scope>
+      <ErrorNumber>1096</ErrorNumber>
+      <Property>DocSets</Property>
+      <Notes></Notes>
+      <TargetType>Parameter</TargetType>
+    </Suppression>
+    <Suppression>
+      <UID>c72969a9c41eadd4c5e5cde2647826ec85ea8f07</UID>
+      <Scope>AllOfTypeAndProperty</Scope>
+      <ErrorNumber>1096</ErrorNumber>
+      <Property>DocSets</Property>
+      <Notes></Notes>
+      <TargetType>EnumElement</TargetType>
+    </Suppression>
+    <Suppression>
+      <UID>e29c0532b43dad5de78ee193588f61e9047a3c33</UID>
+      <Scope>AllOfTypeAndProperty</Scope>
+      <ErrorNumber>1125</ErrorNumber>
+      <Property>Name</Property>
+      <Notes></Notes>
+      <TargetType>EnumElement</TargetType>
+    </Suppression>
+  </Suppressions>
+</Module>
